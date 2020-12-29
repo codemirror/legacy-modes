@@ -1,4 +1,4 @@
-import {StreamParser} from "@codemirror/next/stream-parser"
+import {StreamParser} from "@codemirror/stream-parser"
 export declare const javascript: StreamParser<unknown>
 export declare const json: StreamParser<unknown>
 export declare const jsonld: StreamParser<unknown>

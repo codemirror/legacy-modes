@@ -1,4 +1,4 @@
-import {StreamParser} from "@codemirror/next/stream-parser"
+import {StreamParser} from "@codemirror/stream-parser"
 export declare function clike(conf: {
   statementIndentUnit?: number,
   dontAlignCalls?: boolean,

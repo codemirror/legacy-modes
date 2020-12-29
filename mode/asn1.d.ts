@@ -1,4 +1,4 @@
-import {StreamParser} from "@codemirror/next/stream-parser"
+import {StreamParser} from "@codemirror/stream-parser"
 export declare function asn1(conf: {
   keywords?: {[word: string]: any},
   cmipVerbs?: {[word: string]: any},

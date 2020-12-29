@@ -1,2 +1,2 @@
-import {StreamParser} from "@codemirror/next/stream-parser"
+import {StreamParser} from "@codemirror/stream-parser"
 export declare const ntriples: StreamParser<unknown>
