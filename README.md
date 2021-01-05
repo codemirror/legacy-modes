@@ -1,4 +1,4 @@
-<!-- NOTE: README.md is generated from src/README.md -->
+<!-- NOTE: README.md is generated from mode/README.md -->
 
 # @codemirror/legacy-modes [![NPM version](https://img.shields.io/npm/v/@codemirror/legacy-modes.svg)](https://www.npmjs.org/package/@codemirror/legacy-modes)
 
@@ -22,6 +22,34 @@ We aim to be an inclusive, welcoming community. To make that explicit,
 we have a [code of
 conduct](http://contributor-covenant.org/version/1/1/0/) that applies
 to communication around the project.
+
+## Example
+
+Using modes from this package works like this:
+
+ - Install this package and the
+   [`@codemirror/stream-parser`](https://codemirror.net/6/docs/ref/#stream-parser)
+   package.
+
+ - Find the `StreamParser` instance you need in the reference below.
+
+ - Add `StreamLanguage.define(theParser)` to your editor's
+   configuration.
+
+For example, to load the Lua mode, you'd do something like...
+
+```javascript
+import {StreamLanguage} from "@codemirror/stream-parser"
+import {lua} from "@codemirror/legacy-modes/mode/lua"
+
+import {EditorView, EditorState, basicSetup} from "@codemirror/basic-setup"
+
+let view = new EditorView({
+  state: EditorState.create({
+    extensions: [basicSetup, StreamLanguage.define(lua)]
+  })
+})
+```
 
 ## API Reference
 
