@@ -63,7 +63,7 @@ function currentScope(state, n) {
 // tokenizers
 function tokenBase(stream, state) {
   // Handle multiline comments
-  if (stream.match(/^#=/, false)) {
+  if (stream.match('#=', false)) {
     state.tokenize = tokenComment;
     return state.tokenize(stream, state);
   }
@@ -124,10 +124,10 @@ function tokenBase(stream, state) {
   }
 
   if (inArray(state)) {
-    if (state.lastToken == "end" && stream.match(/^:/)) {
+    if (state.lastToken == "end" && stream.match(':')) {
       return "operator";
     }
-    if (stream.match(/^end/)) {
+    if (stream.match('end')) {
       return "number";
     }
   }
@@ -184,7 +184,7 @@ function tokenBase(stream, state) {
   }
 
   // Handle Chars
-  if (stream.match(/^'/)) {
+  if (stream.match("'")) {
     state.tokenize = tokenChar;
     return state.tokenize(stream, state);
   }
@@ -246,7 +246,7 @@ function tokenCallOrDef(stream, state) {
       state.scopes.push('(');
       charsAdvanced += match[1].length;
     }
-    if (currentScope(state) == '(' && stream.match(/^\)/)) {
+    if (currentScope(state) == '(' && stream.match(')')) {
       state.scopes.pop();
       charsAdvanced += 1;
       if (state.scopes.length <= state.firstParenPos) {
@@ -278,10 +278,10 @@ function tokenCallOrDef(stream, state) {
 }
 
 function tokenAnnotation(stream, state) {
-  stream.match(/.*?(?=,|;|{|}|\(|\)|=|$|\s)/);
-  if (stream.match(/^{/)) {
+  stream.match(/.*?(?=[,;{}()=\s]|$)/);
+  if (stream.match('{')) {
     state.nestedParameters++;
-  } else if (stream.match(/^}/) && state.nestedParameters > 0) {
+  } else if (stream.match('}') && state.nestedParameters > 0) {
     state.nestedParameters--;
   }
   if (state.nestedParameters > 0) {
@@ -293,13 +293,13 @@ function tokenAnnotation(stream, state) {
 }
 
 function tokenComment(stream, state) {
-  if (stream.match(/^#=/)) {
+  if (stream.match('#=')) {
     state.nestedComments++;
   }
   if (!stream.match(/.*?(?=(#=|=#))/)) {
     stream.skipToEnd();
   }
-  if (stream.match(/^=#/)) {
+  if (stream.match('=#')) {
     state.nestedComments--;
     if (state.nestedComments == 0)
       state.tokenize = tokenBase;
@@ -330,7 +330,7 @@ function tokenChar(stream, state) {
     return "string";
   }
   if (!stream.match(/^[^']+(?=')/)) { stream.skipToEnd(); }
-  if (stream.match(/^'/)) { state.tokenize = tokenBase; }
+  if (stream.match("'")) { state.tokenize = tokenBase; }
   return "error";
 }
 

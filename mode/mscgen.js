@@ -46,11 +46,11 @@ export const xu = mkParser({
 })
 
 function wordRegexpBoundary(pWords) {
-  return new RegExp("\\b(" + pWords.join("|") + ")\\b", "i");
+  return new RegExp("^\\b(" + pWords.join("|") + ")\\b", "i");
 }
 
 function wordRegexp(pWords) {
-  return new RegExp("(" + pWords.join("|") + ")", "i");
+  return new RegExp("^(?:" + pWords.join("|") + ")", "i");
 }
 
 function startStateFn() {
@@ -126,7 +126,7 @@ function produceTokenFunction(pConfig) {
       return "variable";
 
     /* attribute lists */
-    if (!pConfig.inAttributeList && !!pConfig.attributes && pStream.match(/\[/, true, true)) {
+    if (!pConfig.inAttributeList && !!pConfig.attributes && pStream.match('[', true, true)) {
       pConfig.inAttributeList = true;
       return "bracket";
     }
@@ -134,7 +134,7 @@ function produceTokenFunction(pConfig) {
       if (pConfig.attributes !== null && pStream.match(wordRegexpBoundary(pConfig.attributes), true, true)) {
         return "attribute";
       }
-      if (pStream.match(/]/, true, true)) {
+      if (pStream.match(']', true, true)) {
         pConfig.inAttributeList = false;
         return "bracket";
       }

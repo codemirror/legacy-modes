@@ -23,11 +23,11 @@ export const yaml = {
       state.pair = false;
       state.pairStart = false;
       /* document start */
-      if(stream.match(/---/)) { return "def"; }
+      if(stream.match('---')) { return "def"; }
       /* document end */
-      if (stream.match(/\.\.\./)) { return "def"; }
+      if (stream.match('...')) { return "def"; }
       /* array list item */
-      if (stream.match(/\s*-\s+/)) { return 'meta'; }
+      if (stream.match(/^\s*-\s+/)) { return 'meta'; }
     }
     /* inline pairs/lists */
     if (stream.match(/^(\{|\}|\[|\])/)) {
@@ -42,12 +42,12 @@ export const yaml = {
       return 'meta';
     }
 
-    /* list seperator */
+    /* list separator */
     if (state.inlineList > 0 && !esc && ch == ',') {
       stream.next();
       return 'meta';
     }
-    /* pairs seperator */
+    /* pairs separator */
     if (state.inlinePairs > 0 && !esc && ch == ',') {
       state.keyCol = 0;
       state.pair = false;

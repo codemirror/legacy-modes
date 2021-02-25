@@ -162,7 +162,7 @@ function tokenize(stream, state) {
   // Match characters that we are going to assume
   // are trying to be regex
   if (ch == '/') {
-    stream.match(/.*?\//);
+    stream.match(/^[^\/]*\//);
     return 'string.special';
   }
   // Match all the numbers

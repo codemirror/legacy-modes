@@ -1,11 +1,11 @@
-var headerSeperator = /^-+$/;
+var headerSeparator = /^-+$/;
 var headerLine = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)  ?\d{1,2} \d{2}:\d{2}(:\d{2})? [A-Z]{3,4} \d{4} - /;
 var simpleEmail = /^[\w+.-]+@[\w.-]+/;
 
 export const rpmChanges = {
   token: function(stream) {
     if (stream.sol()) {
-      if (stream.match(headerSeperator)) { return 'tag'; }
+      if (stream.match(headerSeparator)) { return 'tag'; }
       if (stream.match(headerLine)) { return 'tag'; }
     }
     if (stream.match(simpleEmail)) { return 'string'; }
@@ -62,12 +62,12 @@ export const rpmSpec = {
 
     // Macros like '%make_install' or '%attr(0775,root,root)'
     if (stream.match(/^%[\w]+/)) {
-      if (stream.match(/^\(/)) { state.macroParameters = true; }
+      if (stream.match('(')) { state.macroParameters = true; }
       return "keyword";
     }
     if (state.macroParameters) {
       if (stream.match(/^\d+/)) { return "number";}
-      if (stream.match(/^\)/)) {
+      if (stream.match(')')) {
         state.macroParameters = false;
         return "keyword";
       }

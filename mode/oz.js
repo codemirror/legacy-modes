@@ -30,7 +30,7 @@ function tokenBase(stream, state) {
   }
 
   // Special [] keyword
-  if (stream.match(/(\[])/)) {
+  if (stream.match('[]')) {
     return "keyword"
   }
 

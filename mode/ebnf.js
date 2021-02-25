@@ -23,10 +23,10 @@ export const ebnf = {
         state.stringType = stream.peek();
         stream.next(); // Skip quote
         state.stack.unshift(stateType._string);
-      } else if (stream.match(/^\/\*/)) { //comments starting with /*
+      } else if (stream.match('/*')) { //comments starting with /*
         state.stack.unshift(stateType.comment);
         state.commentType = commentType.slash;
-      } else if (stream.match(/^\(\*/)) { //comments starting with (*
+      } else if (stream.match('(*')) { //comments starting with (*
         state.stack.unshift(stateType.comment);
         state.commentType = commentType.parenthesis;
       }
@@ -51,10 +51,10 @@ export const ebnf = {
 
     case stateType.comment:
       while (state.stack[0] === stateType.comment && !stream.eol()) {
-        if (state.commentType === commentType.slash && stream.match(/\*\//)) {
+        if (state.commentType === commentType.slash && stream.match('*/')) {
           state.stack.shift(); // Clear flag
           state.commentType = null;
-        } else if (state.commentType === commentType.parenthesis && stream.match(/\*\)/)) {
+        } else if (state.commentType === commentType.parenthesis && stream.match('*)')) {
           state.stack.shift(); // Clear flag
           state.commentType = null;
         } else {
@@ -65,7 +65,7 @@ export const ebnf = {
 
     case stateType.characterClass:
       while (state.stack[0] === stateType.characterClass && !stream.eol()) {
-        if (!(stream.match(/^[^\]\\]+/) || stream.match(/^\\./))) {
+        if (!(stream.match(/^[^\]\\]+/) || stream.match('.'))) {
           state.stack.shift();
         }
       }
@@ -125,10 +125,10 @@ export const ebnf = {
       }
     }
 
-    if (stream.match(/^\/\//)) {
+    if (stream.match('//')) {
       stream.skipToEnd();
       return "comment";
-    } else if (stream.match(/return/)) {
+    } else if (stream.match('return')) {
       return "operator";
     } else if (stream.match(/^[a-zA-Z_][a-zA-Z0-9_]*/)) {
       if (stream.match(/(?=[\(.])/)) {

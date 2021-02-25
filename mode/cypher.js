@@ -5,11 +5,11 @@ var wordRegexp = function(words) {
 var tokenBase = function(stream/*, state*/) {
   var ch = stream.next();
   if (ch ==='"') {
-    stream.match(/.*?"/);
+    stream.match(/^.*?"/);
     return "string";
   }
   if (ch === "'") {
-    stream.match(/.*?'/);
+    stream.match(/^.*?'/);
     return "string";
   }
   if (/[{}\(\),\.;\[\]]/.test(ch)) {

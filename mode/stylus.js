@@ -158,7 +158,7 @@ function tokenBase(stream, state) {
     // Variable
     if (stream.match(/^(\.|\[)[\w-\'\"\]]+/i, false)) {
       if (!wordIsTag(stream.current())) {
-        stream.match(/\./);
+        stream.match('.');
         return ["variable", "variable-name"];
       }
     }

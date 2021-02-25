@@ -84,7 +84,7 @@ function tokenBase(stream, state) {
       return 'header';
   }
 
-  if (ch == '{' && stream.match(/\{\{/))
+  if (ch == '{' && stream.match('{{'))
     return chain(stream, state, twTokenCode);
 
   // rudimentary html:// file:// link matching. TW knows much more ...

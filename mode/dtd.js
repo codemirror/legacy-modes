@@ -91,7 +91,7 @@ export const dtd = {
   indent: function(state, textAfter, cx) {
     var n = state.stack.length;
 
-    if( textAfter.match(/\]\s+|\]/) )n=n-1;
+    if( textAfter.charAt(0) === ']' )n--;
     else if(textAfter.substr(textAfter.length-1, textAfter.length) === ">"){
       if(textAfter.substr(0,1) === "<") {}
       else if( type == "doindent" && textAfter.length > 1 ) {}

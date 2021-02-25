@@ -152,7 +152,7 @@ export const scheme = {
           } else if (stream.match(/^[-+0-9.]/, false)) {
             hasRadix = false;
             numTest = isDecimalNumber;
-            // re-consume the intial # if all matches failed
+            // re-consume the initial # if all matches failed
           } else if (!hasExactness) {
             stream.eat('#');
           }

@@ -204,7 +204,8 @@ function mkJavaScript(parserConfig) {
 
   // Parser
 
-  var atomicTypes = {"atom": true, "number": true, "variable": true, "string": true, "regexp": true, "this": true, "jsonld-keyword": true};
+  var atomicTypes = {"atom": true, "number": true, "variable": true, "string": true,
+                     "regexp": true, "this": true, "import": true, "jsonld-keyword": true};
 
   function JSLexical(indented, column, type, align, prev, info) {
     this.indented = indented;
@@ -427,7 +428,6 @@ function mkJavaScript(parserConfig) {
     if (type == "{") return contCommasep(objprop, "}", null, maybeop);
     if (type == "quasi") return pass(quasi, maybeop);
     if (type == "new") return cont(maybeTarget(noComma));
-    if (type == "import") return cont(expression);
     return cont();
   }
   function maybeexpression(type) {
@@ -610,7 +610,7 @@ function mkJavaScript(parserConfig) {
     if (type == "=>") return cont(typeexpr)
   }
   function typeprops(type) {
-    if (type == "}") return cont()
+    if (type.match(/[\}\)\]]/)) return cont()
     if (type == "," || type == ";") return cont(typeprops)
     return pass(typeprop, typeprops)
   }
@@ -626,6 +626,8 @@ function mkJavaScript(parserConfig) {
       return cont(expect("variable"), maybetypeOrIn, expect("]"), typeprop)
     } else if (type == "(") {
       return pass(functiondecl, typeprop)
+    } else if (!type.match(/[;\}\)\],]/)) {
+      return cont()
     }
   }
   function typearg(type, value) {
@@ -786,6 +788,7 @@ function mkJavaScript(parserConfig) {
   function afterImport(type) {
     if (type == "string") return cont();
     if (type == "(") return pass(expression);
+    if (type == ".") return pass(maybeoperatorComma);
     return pass(importSpec, maybeMoreImports, maybeFrom);
   }
   function importSpec(type, value) {
