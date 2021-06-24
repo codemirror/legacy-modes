@@ -362,7 +362,7 @@ function mkJavaScript(parserConfig) {
       return cont(pushlex("form"), parenExpr, statement, poplex, maybeelse);
     }
     if (type == "function") return cont(functiondef);
-    if (type == "for") return cont(pushlex("form"), forspec, statement, poplex);
+    if (type == "for") return cont(pushlex("form"), pushblockcontext, forspec, statement, popcontext, poplex);
     if (type == "class" || (isTS && value == "interface")) {
       cx.marked = "keyword"
       return cont(pushlex("form", type == "class" ? type : value), className, poplex)
@@ -465,7 +465,7 @@ function mkJavaScript(parserConfig) {
   function quasi(type, value) {
     if (type != "quasi") return pass();
     if (value.slice(value.length - 2) != "${") return cont(quasi);
-    return cont(expression, continueQuasi);
+    return cont(maybeexpression, continueQuasi);
   }
   function continueQuasi(type) {
     if (type == "}") {
@@ -591,7 +591,7 @@ function mkJavaScript(parserConfig) {
     }
   }
   function typeexpr(type, value) {
-    if (value == "keyof" || value == "typeof" || value == "infer") {
+    if (value == "keyof" || value == "typeof" || value == "infer" || value == "readonly") {
       cx.marked = "keyword"
       return cont(value == "typeof" ? expressionNoComma : typeexpr)
     }
@@ -605,6 +605,7 @@ function mkJavaScript(parserConfig) {
     if (type == "{") return cont(pushlex("}"), typeprops, poplex, afterType)
     if (type == "(") return cont(commasep(typearg, ")"), maybeReturnType, afterType)
     if (type == "<") return cont(commasep(typeexpr, ">"), typeexpr)
+    if (type == "quasi") return pass(quasiType, afterType)
   }
   function maybeReturnType(type) {
     if (type == "=>") return cont(typeexpr)
@@ -628,6 +629,18 @@ function mkJavaScript(parserConfig) {
       return pass(functiondecl, typeprop)
     } else if (!type.match(/[;\}\)\],]/)) {
       return cont()
+    }
+  }
+  function quasiType(type, value) {
+    if (type != "quasi") return pass();
+    if (value.slice(value.length - 2) != "${") return cont(quasiType);
+    return cont(typeexpr, continueQuasiType);
+  }
+  function continueQuasiType(type) {
+   if (type == "}") {
+      cx.marked = "string-2";
+      cx.state.tokenize = tokenQuasi;
+      return cont(quasiType);
     }
   }
   function typearg(type, value) {
@@ -769,7 +782,7 @@ function mkJavaScript(parserConfig) {
     if (value == "@") return cont(expression, classBody)
   }
   function classfield(type, value) {
-    if (value == "?") return cont(classfield)
+    if (value == "!" || value == "?") return cont(classfield)
     if (type == ":") return cont(typeexpr, maybeAssign)
     if (value == "=") return cont(expressionNoComma)
     var context = cx.state.lexical.prev, isInterface = context && context.info == "interface"
@@ -869,7 +882,7 @@ function mkJavaScript(parserConfig) {
       if (!/^\s*else\b/.test(textAfter)) for (var i = state.cc.length - 1; i >= 0; --i) {
         var c = state.cc[i];
         if (c == poplex) lexical = lexical.prev;
-        else if (c != maybeelse) break;
+        else if (c != maybeelse && c != popcontext) break;
       }
       while ((lexical.type == "stat" || lexical.type == "form") &&
              (firstChar == "}" || ((top = state.cc[state.cc.length - 1]) &&

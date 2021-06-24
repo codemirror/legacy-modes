@@ -127,6 +127,7 @@ export const lua = {
   },
 
   languageData: {
+    indentOnInput: /^\s*(?:end|until|else|\)|\})$/,
     commentTokens: {line: "--", block: {open: "--[[", close: "]]--"}}
   }
 };

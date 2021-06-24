@@ -36,9 +36,9 @@ function tokenBase(stream, state) {
   } else if (ch == "`") {
     stream.match(/[^`]+`/);
     return "string.special";
-  } else if (ch == "." && stream.match(/.[.\d]+/)) {
+  } else if (ch == "." && stream.match(/.(?:[.]|\d+)/)) {
     return "keyword";
-  } else if (/[\w\.]/.test(ch) && ch != "_") {
+  } else if (/[a-zA-Z\.]/.test(ch)) {
     stream.eatWhile(/[\w\.]/);
     var word = stream.current();
     if (atoms.propertyIsEnumerable(word)) return "atom";

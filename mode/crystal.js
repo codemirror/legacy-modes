@@ -150,10 +150,10 @@ function tokenBase(stream, state) {
     } else {
       if(delim = stream.match(/^%([^\w\s=])/)) {
         delim = delim[1];
-      } else if (stream.match(/^%[a-zA-Z0-9_\u009F-\uFFFF]*/)) {
+      } else if (stream.match(/^%[a-zA-Z_\u009F-\uFFFF][\w\u009F-\uFFFF]*/)) {
         // Macro variables
         return "meta";
-      } else {
+      } else if (stream.eat('%')) {
         // '%' operator
         return "operator";
       }
@@ -180,17 +180,17 @@ function tokenBase(stream, state) {
   // Numbers
   if (stream.eat("0")) {
     if (stream.eat("x")) {
-      stream.match(/^[0-9a-fA-F]+/);
+      stream.match(/^[0-9a-fA-F_]+/);
     } else if (stream.eat("o")) {
-      stream.match(/^[0-7]+/);
+      stream.match(/^[0-7_]+/);
     } else if (stream.eat("b")) {
-      stream.match(/^[01]+/);
+      stream.match(/^[01_]+/);
     }
     return "number";
   }
 
   if (stream.eat(/^\d/)) {
-    stream.match(/^\d*(?:\.\d+)?(?:[eE][+-]?\d+)?/);
+    stream.match(/^[\d_]*(?:\.[\d_]+)?(?:[eE][+-]?\d+)?/);
     return "number";
   }
 

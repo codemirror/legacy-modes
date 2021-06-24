@@ -268,7 +268,7 @@ export function mkPython(parserConf) {
   }
 
   function pushBracketScope(stream, state, type) {
-    var align = stream.match(/^([\s\[\{\(]|#.*)*$/, false) ? null : stream.column() + 1
+    var align = stream.match(/^[\s\[\{\(]*(?:#|$)/, false) ? null : stream.column() + 1
     state.scopes.push({offset: state.indent + (hangingIndent || stream.indentUnit),
                        type: type,
                        align: align})
@@ -284,8 +284,11 @@ export function mkPython(parserConf) {
   }
 
   function tokenLexer(stream, state) {
-    if (stream.sol()) state.beginningOfLine = true;
-
+    if (stream.sol()) {
+      state.beginningOfLine = true;
+      state.dedent = false;
+    }
+ 
     var style = state.tokenize(stream, state);
     var current = stream.current();
 
@@ -301,10 +304,10 @@ export function mkPython(parserConf) {
 
     // Handle scope changes.
     if (current == "pass" || current == "return")
-      state.dedent += 1;
+      state.dedent = true;
 
     if (current == "lambda") state.lambda = true;
-    if (current == ":" && !state.lambda && top(state).type == "py")
+    if (current == ":" && !state.lambda && top(state).type == "py" && stream.match(/^\s*(?:#|$)/, false))
       pushPyScope(stream, state);
 
     if (current.length == 1 && !/string|comment/.test(style)) {
@@ -318,10 +321,8 @@ export function mkPython(parserConf) {
         else return ERRORCLASS;
       }
     }
-    if (state.dedent > 0 && stream.eol() && top(state).type == "py") {
-      if (state.scopes.length > 1) state.scopes.pop();
-      state.dedent -= 1;
-    }
+    if (state.dedent && stream.eol() && top(state).type == "py" && state.scopes.length > 1)
+      state.scopes.pop();
 
     return style;
   }
@@ -356,7 +357,9 @@ export function mkPython(parserConf) {
       if (state.tokenize != tokenBase)
         return state.tokenize.isString ? null : 0;
 
-      var scope = top(state), closing = scope.type == textAfter.charAt(0)
+      var scope = top(state)
+      var closing = scope.type == textAfter.charAt(0) ||
+          scope.type == "py" && !state.dedent && /^(else:|elif |except |finally:)/.test(textAfter)
       if (scope.align != null)
         return scope.align - (closing ? 1 : 0)
       else
@@ -365,7 +368,7 @@ export function mkPython(parserConf) {
 
     languageData: {
       autocomplete: commonKeywords.concat(commonBuiltins),
-      indentOnInput: /^\s*[\}\]\)]$/,
+      indentOnInput: /^\s*([\}\]\)]|else:|elif |except |finally:)$/,
       commentTokens: {line: "#"},
       closeBrackets: {brackets: ["(", "[", "{", "'", '"', "'''", '"""']}
     }
