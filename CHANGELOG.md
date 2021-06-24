@@ -1,3 +1,9 @@
+## 0.18.1 (2021-06-24)
+
+### Bug fixes
+
+Fix internal imports to include the extension in the path.
+
 ## 0.18.0 (2021-03-03)
 
 ### Breaking changes
