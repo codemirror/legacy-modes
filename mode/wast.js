@@ -1,4 +1,4 @@
-import {simpleMode} from "./simple-mode"
+import {simpleMode} from "./simple-mode.js"
 export const wast = simpleMode({
   start: [
     {regex: /[+\-]?(?:nan(?::0x[0-9a-fA-F]+)?|infinity|inf|0x[0-9a-fA-F]+\.?[0-9a-fA-F]*p[+\/-]?\d+|\d+(?:\.\d*)?[eE][+\-]?\d*|\d+\.\d*|0x[0-9a-fA-F]+|\d+)/, token: "number"},

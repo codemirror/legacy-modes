@@ -1,4 +1,4 @@
-import {simpleMode} from "./simple-mode"
+import {simpleMode} from "./simple-mode.js"
 
 export const rust = simpleMode({
   start: [
