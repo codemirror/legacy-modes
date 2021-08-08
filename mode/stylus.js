@@ -693,7 +693,7 @@ export const stylus = {
         ch = textAfter && textAfter.charAt(0),
         indent = cx.indent,
         lineFirstWord = firstWordOfLine(textAfter),
-        lineIndent = iCx.lineIndent(iCx.state.doc.lineAt(iCx.pos).number),
+        lineIndent = iCx.lineIndent(iCx.pos),
         prevLineFirstWord = state.context.prev ? state.context.prev.line.firstWord : "",
         prevLineIndent = state.context.prev ? state.context.prev.line.indent : lineIndent;
 
