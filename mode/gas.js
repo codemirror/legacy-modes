@@ -129,18 +129,26 @@ function mkGas(arch) {
   function x86() {
     lineCommentStartSymbol = "#";
 
+    registers.al  = "variable";
+    registers.ah  = "variable";
     registers.ax  = "variable";
     registers.eax = "variableName.special";
     registers.rax = "variableName.special";
 
+    registers.bl  = "variable";
+    registers.bh  = "variable";
     registers.bx  = "variable";
     registers.ebx = "variableName.special";
     registers.rbx = "variableName.special";
 
+    registers.cl  = "variable";
+    registers.ch  = "variable";
     registers.cx  = "variable";
     registers.ecx = "variableName.special";
     registers.rcx = "variableName.special";
 
+    registers.dl  = "variable";
+    registers.dh  = "variable";
     registers.dx  = "variable";
     registers.edx = "variableName.special";
     registers.rdx = "variableName.special";

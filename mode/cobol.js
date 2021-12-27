@@ -177,7 +177,7 @@ export const cobol = {
     case "string": // multi-line string parsing mode
       var next = false;
       while ((next = stream.next()) != null) {
-        if (next == "\"" || next == "\'") {
+        if ((next == "\"" || next == "\'") && !stream.match(/['"]/, false)) {
           state.mode = false;
           break;
         }

@@ -1,5 +1,5 @@
 var BUILTIN = "builtin", COMMENT = "comment", STRING = "string",
-    ATOM = "atom", NUMBER = "number", BRACKET = "bracket";
+    SYMBOL = "symbol", ATOM = "atom", NUMBER = "number", BRACKET = "bracket";
 var INDENT_WORD_SKIP = 2;
 
 function makeKeywords(str) {
@@ -49,6 +49,17 @@ function isHexNumber (stream) {
   return stream.match(hexMatcher);
 }
 
+function processEscapedSequence(stream, options) {
+  var next, escaped = false;
+  while ((next = stream.next()) != null) {
+    if (next == options.token && !escaped) {
+      options.state.mode = false;
+      break;
+    }
+    escaped = !escaped && next == "\\";
+  }
+}
+
 export const scheme = {
   startState: function () {
     return {
@@ -74,16 +85,18 @@ export const scheme = {
 
     switch(state.mode){
     case "string": // multi-line string parsing mode
-      var next, escaped = false;
-      while ((next = stream.next()) != null) {
-        if (next == "\"" && !escaped) {
-
-          state.mode = false;
-          break;
-        }
-        escaped = !escaped && next == "\\";
-      }
+      processEscapedSequence(stream, {
+        token: "\"",
+        state: state
+      });
       returnType = STRING; // continue on in scheme-string mode
+      break;
+    case "symbol": // escape symbol
+      processEscapedSequence(stream, {
+        token: "|",
+        state: state
+      });
+      returnType = SYMBOL; // continue on in scheme-symbol mode
       break;
     case "comment": // comment parsing mode
       var next, maybeEnd = false;
@@ -125,6 +138,9 @@ export const scheme = {
           stream.eatWhile(/[\w_\-!$%&*+\.\/:<=>?@\^~]/);
           returnType = ATOM;
         }
+      } else if (ch == '|') {
+        state.mode = "symbol";
+        returnType = SYMBOL;
       } else if (ch == '#') {
         if (stream.eat("|")) {                    // Multi-line comment
           state.mode = "comment"; // toggle to comment mode
