@@ -148,7 +148,7 @@ function Context(prev, align, indented) {
 }
 
 function pushContext(state, stream) {
-  var align = stream.match(/^\s*($|\/[\/\*])/, false) ? null : stream.column() + 1
+  var align = stream.match(/^\s*($|\/[\/\*]|[)}\]])/, false) ? null : stream.column() + 1
   state.context = new Context(state.context, align, state.indented)
 }
 
