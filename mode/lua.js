@@ -103,7 +103,7 @@ function string(quote) {
 
 export const lua = {
   startState: function(basecol) {
-    return {basecol: basecol || 0, indentDepth: 0, cur: normal};
+    return {basecol: 0, indentDepth: 0, cur: normal};
   },
 
   token: function(stream, state) {
