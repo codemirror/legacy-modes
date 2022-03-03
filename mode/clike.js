@@ -459,6 +459,11 @@ export const java = clike({
 
       stream.eatWhile(/[\w\$_]/);
       return "meta";
+    },
+    '"': function(stream, state) {
+      if (!stream.match('""\n')) return false;
+      state.tokenize = tokenTripleString;
+      return state.tokenize(stream, state);
     }
   }
 })

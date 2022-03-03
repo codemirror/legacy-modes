@@ -46,7 +46,7 @@ function mlLike(parserConfig) {
       }
     }
     if (ch === '(') {
-      if (stream.eat('*')) {
+      if (stream.match(/^\*(?!\))/)) {
         state.commentLevel++;
         state.tokenize = tokenComment;
         return state.tokenize(stream, state);
