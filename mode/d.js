@@ -4,7 +4,7 @@ function words(str) {
   return obj;
 }
 
-var blockKeywords = "body catch class do else enum for foreach foreach_reverse if in interface mixin " +
+var blockKeywordsStr = "body catch class do else enum for foreach foreach_reverse if in interface mixin " +
     "out scope struct switch try union unittest version while with";
 
 const parserConfig = {
@@ -13,8 +13,8 @@ const parserConfig = {
                   "import inout invariant is lazy macro module new nothrow override package pragma private " +
                   "protected public pure ref return shared short static super synchronized template this " +
                   "throw typedef typeid typeof volatile __FILE__ __LINE__ __gshared __traits __vector __parameters " +
-                  blockKeywords),
-  blockKeywords: words(blockKeywords),
+                  blockKeywordsStr),
+  blockKeywords: words(blockKeywordsStr),
   builtin: words("bool byte char creal dchar double float idouble ifloat int ireal long real short ubyte " +
                  "ucent uint ulong ushort wchar wstring void size_t sizediff_t"),
   atoms: words("exit failure success true false null"),
