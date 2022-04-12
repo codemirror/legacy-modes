@@ -1,4 +1,4 @@
-import {StreamParser} from "@codemirror/stream-parser"
+import {StreamParser} from "@codemirror/language"
 export declare function sql(conf: {
   client?: {[word: string]: any},
   atoms?: {[word: string]: any},

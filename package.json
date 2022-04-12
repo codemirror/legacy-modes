@@ -28,7 +28,7 @@
   "sideEffects": false,
   "license": "MIT",
   "dependencies": {
-    "@codemirror/stream-parser": "^0.19.0"
+    "@codemirror/language": "^0.19.0"
   },
   "devDependencies": {
     "rollup": "^2.35.1",

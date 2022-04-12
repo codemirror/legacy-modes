@@ -28,7 +28,7 @@ to communication around the project.
 Using modes from this package works like this:
 
  - Install this package and the
-   [`@codemirror/stream-parser`](https://codemirror.net/6/docs/ref/#stream-parser)
+   [`@codemirror/language`](https://codemirror.net/6/docs/ref/#language)
    package.
 
  - Find the `StreamParser` instance you need in the reference below.
@@ -39,7 +39,7 @@ Using modes from this package works like this:
 For example, to load the Lua mode, you'd do something like...
 
 ```javascript
-import {StreamLanguage} from "@codemirror/stream-parser"
+import {StreamLanguage} from "@codemirror/language"
 import {lua} from "@codemirror/legacy-modes/mode/lua"
 
 import {EditorView, EditorState, basicSetup} from "@codemirror/basic-setup"

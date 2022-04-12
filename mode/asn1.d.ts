@@ -1,4 +1,4 @@
-import {StreamParser} from "@codemirror/stream-parser"
+import {StreamParser} from "@codemirror/language"
 export declare function asn1(conf: {
   keywords?: {[word: string]: any},
   cmipVerbs?: {[word: string]: any},
