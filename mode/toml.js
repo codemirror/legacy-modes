@@ -65,5 +65,8 @@ export const toml = {
       stream.next();
     }
     return null;
-  }
+  },
+  languageData: {
+    commentTokens: { line: '#' },
+  },
 };
