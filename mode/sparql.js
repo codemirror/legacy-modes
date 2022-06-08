@@ -45,14 +45,7 @@ function tokenBase(stream, state) {
     stream.skipToEnd();
     return "comment";
   }
-  else if (ch === "^") {
-    ch = stream.peek();
-    if (ch === "^") stream.eat("^");
-    else stream.eatWhile(operatorChars);
-    return "operator";
-  }
   else if (operatorChars.test(ch)) {
-    stream.eatWhile(operatorChars);
     return "operator";
   }
   else if (ch == ":") {

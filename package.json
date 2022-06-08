@@ -28,7 +28,7 @@
   "sideEffects": false,
   "license": "MIT",
   "dependencies": {
-    "@codemirror/language": "^0.20.0"
+    "@codemirror/language": "^6.0.0"
   },
   "devDependencies": {
     "rollup": "^2.35.1",
