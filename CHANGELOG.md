@@ -1,3 +1,9 @@
+## 6.0.0 (2022-06-08)
+
+### Bug fixes
+
+Add line comment syntax metadata to the Toml mode.
+
 ## 0.20.0 (2022-04-20)
 
 ### Breaking changes
