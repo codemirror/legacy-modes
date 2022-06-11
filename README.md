@@ -39,7 +39,10 @@ Using modes from this package works like this:
 For example, to load the Lua mode, you'd do something like...
 
 ```javascript
-import {StreamLanguage} from "@codemirror/stream-parser"
+//[pre @codemirror <=0.19.0]
+//import {StreamLanguage} from "@codemirror/stream-parser"
+//[post @codemirror ^0.20.0]
+import { StreamLanguage } from '@codemirror/language'
 import {lua} from "@codemirror/legacy-modes/mode/lua"
 
 import {EditorView, EditorState, basicSetup} from "@codemirror/basic-setup"
