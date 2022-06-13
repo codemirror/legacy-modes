@@ -2,18 +2,18 @@
 
 # @codemirror/legacy-modes [![NPM version](https://img.shields.io/npm/v/@codemirror/legacy-modes.svg)](https://www.npmjs.org/package/@codemirror/legacy-modes)
 
-[ [**WEBSITE**](https://codemirror.net/6/) | [**ISSUES**](https://github.com/codemirror/dev/issues) | [**FORUM**](https://discuss.codemirror.net/c/next/) | [**CHANGELOG**](https://github.com/codemirror/legacy-modes/blob/main/CHANGELOG.md) ]
+[ [**WEBSITE**](https://codemirror.net/) | [**ISSUES**](https://github.com/codemirror/dev/issues) | [**FORUM**](https://discuss.codemirror.net/c/next/) | [**CHANGELOG**](https://github.com/codemirror/legacy-modes/blob/main/CHANGELOG.md) ]
 
 This package implements a collection of ported [stream
-language](https://codemirror.net/6/docs/ref#stream-parser) modes for
-the [CodeMirror](https://codemirror.net/6/) code editor. Each mode is
+language](https://codemirror.net/docs/ref#language.StreamParser) modes for
+the [CodeMirror](https://codemirror.net/) code editor. Each mode is
 available as a separate script file, under
 `"@codemirror/legacy-modes/mode/[name]"`, and exports the values
 listed below.
 
-The [project page](https://codemirror.net/6/) has more information, a
-number of [examples](https://codemirror.net/6/examples/) and the
-[documentation](https://codemirror.net/6/docs/).
+The [project page](https://codemirror.net/) has more information, a
+number of [examples](https://codemirror.net/examples/) and the
+[documentation](https://codemirror.net/docs/).
 
 This code is released under an
 [MIT license](https://github.com/codemirror/legacy-modes/tree/main/LICENSE).
@@ -28,7 +28,7 @@ to communication around the project.
 Using modes from this package works like this:
 
  - Install this package and the
-   [`@codemirror/language`](https://codemirror.net/6/docs/ref/#language)
+   [`@codemirror/language`](https://codemirror.net/docs/ref/#language)
    package.
 
  - Find the `StreamParser` instance you need in the reference below.
@@ -42,12 +42,10 @@ For example, to load the Lua mode, you'd do something like...
 import {StreamLanguage} from "@codemirror/language"
 import {lua} from "@codemirror/legacy-modes/mode/lua"
 
-import {EditorView, EditorState, basicSetup} from "@codemirror/basic-setup"
+import {EditorView, basicSetup} from "codemirror"
 
 let view = new EditorView({
-  state: EditorState.create({
-    extensions: [basicSetup, StreamLanguage.define(lua)]
-  })
+  extensions: [basicSetup, StreamLanguage.define(lua)]
 })
 ```
 
