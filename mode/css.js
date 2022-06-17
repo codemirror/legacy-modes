@@ -706,6 +706,8 @@ var allWords = documentTypes_.concat(mediaTypes_).concat(mediaFeatures_).concat(
     .concat(propertyKeywords_).concat(nonStandardPropertyKeywords_).concat(colorKeywords_)
     .concat(valueKeywords_);
 
+export const keywords = {properties: propertyKeywords_, colors: colorKeywords_,
+                         fonts: fontProperties_, values: valueKeywords_, all: allWords}
 
 const defaults = {
   documentTypes: documentTypes,
