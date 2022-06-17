@@ -1,3 +1,13 @@
+## 6.1.0 (2022-06-17)
+
+### Bug fixes
+
+Add structured concurrency keywords to the Swift mode. Update readme to follow interface changes
+
+### New features
+
+Adds the Sass mode from CodeMirror 5.
+
 ## 6.0.0 (2022-06-08)
 
 ### Bug fixes
