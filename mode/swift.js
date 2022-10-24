@@ -128,14 +128,12 @@ function tokenString(openQuote, stream, state) {
 
 function tokenComment(stream, state) {
   var ch
-  while (true) {
-    stream.match(/^[^/*]+/, true)
-    ch = stream.next()
-    if (!ch) break
+  while (ch = stream.next()) {
     if (ch === "/" && stream.eat("*")) {
       state.tokenize.push(tokenComment)
     } else if (ch === "*" && stream.eat("/")) {
       state.tokenize.pop()
+      break
     }
   }
   return "comment"

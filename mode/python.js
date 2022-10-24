@@ -288,7 +288,7 @@ export function mkPython(parserConf) {
       state.beginningOfLine = true;
       state.dedent = false;
     }
- 
+
     var style = state.tokenize(stream, state);
     var current = stream.current();
 
@@ -367,7 +367,7 @@ export function mkPython(parserConf) {
     },
 
     languageData: {
-      autocomplete: commonKeywords.concat(commonBuiltins),
+      autocomplete: commonKeywords.concat(commonBuiltins).concat(["exec", "print"]),
       indentOnInput: /^\s*([\}\]\)]|else:|elif |except |finally:)$/,
       commentTokens: {line: "#"},
       closeBrackets: {brackets: ["(", "[", "{", "'", '"', "'''", '"""']}

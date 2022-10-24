@@ -102,7 +102,7 @@ function string(quote) {
 }
 
 export const lua = {
-  startState: function(basecol) {
+  startState: function() {
     return {basecol: 0, indentDepth: 0, cur: normal};
   },
 

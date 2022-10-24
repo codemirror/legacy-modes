@@ -219,5 +219,9 @@ export const elm = {
     var type = state.f(stream, function(s) { state.f = s; });
     var word = stream.current();
     return (wellKnownWords.hasOwnProperty(word)) ? 'keyword' : type;
+  },
+
+  languageData: {
+    commentTokens: {line: "--"}
   }
 };

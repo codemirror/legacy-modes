@@ -22,13 +22,13 @@ export function sql(parserConfig) {
 
     if (support.hexNumber &&
       ((ch == "0" && stream.match(/^[xX][0-9a-fA-F]+/))
-      || (ch == "x" || ch == "X") && stream.match(/^'[0-9a-fA-F]+'/))) {
+      || (ch == "x" || ch == "X") && stream.match(/^'[0-9a-fA-F]*'/))) {
       // hex
       // ref: http://dev.mysql.com/doc/refman/5.5/en/hexadecimal-literals.html
       return "number";
     } else if (support.binaryNumber &&
       (((ch == "b" || ch == "B") && stream.match(/^'[01]+'/))
-      || (ch == "0" && stream.match(/^b[01]+/)))) {
+      || (ch == "0" && stream.match(/^b[01]*/)))) {
       // bitstring
       // ref: http://dev.mysql.com/doc/refman/5.5/en/bit-field-literals.html
       return "number";
