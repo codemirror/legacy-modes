@@ -562,6 +562,7 @@ function truthy(x) {
 // this object defines the mode
 
 export const erlang = {
+  name: "erlang",
   startState() {
     return {tokenStack: [],
             in_string:  false,

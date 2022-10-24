@@ -1,4 +1,5 @@
 export const toml = {
+  name: "toml",
   startState: function () {
     return {
       inString: false,

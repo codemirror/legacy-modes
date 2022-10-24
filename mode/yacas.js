@@ -150,6 +150,7 @@ function currentScope(state) {
 }
 
 export const yacas = {
+  name: "yacas",
   startState: function() {
     return {
       tokenize: tokenBase,

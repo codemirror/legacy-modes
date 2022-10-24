@@ -137,6 +137,7 @@ export function asn1(parserConfig) {
 
   //Interface
   return {
+    name: "asn1",
     startState: function() {
       return {
         tokenize: null,

@@ -47,6 +47,7 @@ function tokenBase(stream) {
 };
 
 export const protobuf = {
+  name: "protobuf",
   token: tokenBase,
   languageData: {
     autocomplete: keywordArray

@@ -377,6 +377,7 @@ function tokenHereDoc(phrase, embed) {
 }
 
 export const crystal = {
+  name: "crystal",
   startState: function () {
     return {
       tokenize: [tokenBase],

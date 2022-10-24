@@ -428,6 +428,7 @@ var Modes = {
 };
 
 export const textile = {
+  name: "textile",
   startState: function() {
     return { mode: Modes.newLayout };
   },

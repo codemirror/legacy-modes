@@ -63,6 +63,7 @@ function tokenize(stream, state) {
   return null;
 }
 export const cmake = {
+  name: "cmake",
   startState: function () {
     var state = {};
     state.inDefinition = false;

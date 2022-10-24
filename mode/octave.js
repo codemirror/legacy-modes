@@ -100,6 +100,8 @@ function tokenBase(stream, state) {
 
 
 export const octave = {
+  name: "octave",
+
   startState: function() {
     return {
       tokenize: tokenBase

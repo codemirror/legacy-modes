@@ -14,6 +14,7 @@ function mkZ80(ez80) {
   var numbers = /^([\da-f]+h|[0-7]+o|[01]+b|\d+d?)\b/i;
 
   return {
+    name: "z80",
     startState: function() {
       return {
         context: 0

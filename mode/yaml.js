@@ -2,6 +2,7 @@ var cons = ['true', 'false', 'on', 'off', 'yes', 'no'];
 var keywordRegex = new RegExp("\\b(("+cons.join(")|(")+"))$", 'i');
 
 export const yaml = {
+  name: "yaml",
   token: function(stream, state) {
     var ch = stream.peek();
     var esc = state.escaped;

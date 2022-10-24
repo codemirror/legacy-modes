@@ -846,6 +846,8 @@ function mkJavaScript(parserConfig) {
   // Interface
 
   return {
+    name: parserConfig.name,
+
     startState: function(indentUnit) {
       var state = {
         tokenize: tokenBase,
@@ -914,7 +916,7 @@ function mkJavaScript(parserConfig) {
   };
 };
 
-export const javascript = mkJavaScript({})
-export const json = mkJavaScript({json: true})
-export const jsonld = mkJavaScript({jsonld: true})
-export const typescript = mkJavaScript({typescript: true})
+export const javascript = mkJavaScript({name: "javascript"})
+export const json = mkJavaScript({name: "json", json: true})
+export const jsonld = mkJavaScript({name: "json", jsonld: true})
+export const typescript = mkJavaScript({name: "typescript", typescript: true})

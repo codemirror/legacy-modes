@@ -1,4 +1,6 @@
 export const spreadsheet = {
+  name: "spreadsheet",
+
   startState: function () {
     return {
       stringType: null,

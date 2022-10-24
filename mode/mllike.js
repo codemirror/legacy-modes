@@ -151,6 +151,7 @@ function mlLike(parserConfig) {
 };
 
 export const oCaml = mlLike({
+  name: "ocaml",
   extraWords: {
     'and': 'keyword',
     'assert': 'keyword',
@@ -214,6 +215,7 @@ export const oCaml = mlLike({
 });
 
 export const fSharp = mlLike({
+  name: "fsharp",
   extraWords: {
     'abstract': 'keyword',
     'assert': 'keyword',
@@ -307,6 +309,7 @@ export const fSharp = mlLike({
 });
 
 export const sml = mlLike({
+  name: "sml",
   extraWords: {
     'abstype': 'keyword',
     'and': 'keyword',

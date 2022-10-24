@@ -286,6 +286,7 @@ function tokenLexer(stream, state) {
 }
 
 export const coffeeScript = {
+  name: "coffeescript",
   startState: function() {
     return {
       tokenize: tokenBase,

@@ -67,6 +67,7 @@ function tokenString(stream,state){
 function pushContext(state,type,col){state.context={prev:state.context,indent:state.indent,col:col,type:type};}
 function popContext(state){state.indent=state.context.indent;state.context=state.context.prev;}
 export const q = {
+  name: "q",
   startState:function(){
     return{tokenize:tokenBase,
            context:null,

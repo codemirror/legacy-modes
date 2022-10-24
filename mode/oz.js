@@ -196,6 +196,7 @@ function buildElectricInputRegEx() {
 }
 
 export const oz = {
+  name: "oz",
 
   startState: function () {
     return {

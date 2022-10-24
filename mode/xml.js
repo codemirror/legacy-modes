@@ -297,6 +297,8 @@ export function mkXML(parserConfig) {
   }
 
   return {
+    name: "xml",
+
     startState: function() {
       var state = {tokenize: inText,
                    state: baseState,

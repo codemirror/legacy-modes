@@ -209,6 +209,8 @@ function tokenLexer(stream, state) {
 }
 
 export const vb = {
+  name: "vb",
+
   startState: function() {
     return {
       tokenize: tokenBase,

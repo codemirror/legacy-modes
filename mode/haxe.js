@@ -372,6 +372,7 @@ function funarg(type, value) {
 
 // Interface
 export const haxe = {
+  name: "haxe",
   startState: function(indentUnit) {
     var defaulttypes = ["Int", "Float", "String", "Void", "Std", "Bool", "Dynamic", "Array"];
     var state = {
@@ -422,6 +423,7 @@ export const haxe = {
 };
 
 export const hxml = {
+  name: "hxml",
   startState: function () {
     return {
       define: false,

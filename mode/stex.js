@@ -214,6 +214,7 @@ function mkStex(mathMode) {
   }
 
   return {
+    name: "stex",
     startState: function() {
       var f = mathMode ? function(source, state){ return inMathMode(source, state); } : normal;
       return {

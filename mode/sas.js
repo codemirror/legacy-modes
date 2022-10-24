@@ -242,6 +242,7 @@ function tokenize(stream, state) {
 }
 
 export const sas = {
+  name: "sas",
   startState: function () {
     return {
       inDataStep: false,

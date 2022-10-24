@@ -798,6 +798,8 @@ function tokenPerl(stream,state){
   return null;}
 
 export const perl = {
+  name: "perl",
+
   startState: function() {
     return {
       tokenize: tokenPerl,

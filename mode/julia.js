@@ -321,6 +321,7 @@ function tokenStringFactory(delimiter) {
 }
 
 export const julia = {
+  name: "julia",
   startState: function() {
     return {
       tokenize: tokenBase,

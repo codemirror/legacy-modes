@@ -105,6 +105,7 @@ function tokenUnparsed(stream, state) {
   return "meta";
 }
 export const tcl = {
+  name: "tcl",
   startState: function() {
     return {
       tokenize: tokenBase,

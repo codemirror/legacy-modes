@@ -82,6 +82,7 @@ function popContext(state) {
 }
 
 export const turtle = {
+  name: "turtle",
   startState: function() {
     return {tokenize: tokenBase,
             context: null,

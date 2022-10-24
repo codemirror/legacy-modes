@@ -266,6 +266,8 @@ function mkVerilog(parserConfig) {
 
   // Interface
   return {
+    name: "verilog",
+
     startState: function(indentUnit) {
       var state = {
         tokenize: null,

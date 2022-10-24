@@ -201,6 +201,7 @@ function popContext(state) {
 
 //Interface
 export const ttcn = {
+  name: "ttcn",
   startState: function() {
     return {
       tokenize: null,

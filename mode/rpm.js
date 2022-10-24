@@ -3,6 +3,7 @@ var headerLine = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Au
 var simpleEmail = /^[\w+.-]+@[\w.-]+/;
 
 export const rpmChanges = {
+  name: "rpmchanges",
   token: function(stream) {
     if (stream.sol()) {
       if (stream.match(headerSeparator)) { return 'tag'; }
@@ -25,6 +26,7 @@ var control_flow_simple = /^%(else|endif)/; // rpm control flow macros
 var operators = /^(\!|\?|\<\=|\<|\>\=|\>|\=\=|\&\&|\|\|)/; // operators in control flow macros
 
 export const rpmSpec = {
+  name: "rpmspec",
   startState: function () {
     return {
       controlFlow: false,

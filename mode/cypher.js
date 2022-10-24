@@ -55,6 +55,7 @@ var systemKeywords = wordRegexp(["access", "active", "assign", "all", "alter", "
 var operatorChars = /[*+\-<>=&|~%^]/;
 
 export const cypher = {
+  name: "cypher",
   startState: function() {
     return {
       tokenize: tokenBase,

@@ -144,6 +144,7 @@ export function clike(parserConfig) {
   // Interface
 
   return {
+    name: parserConfig.name,
     startState: function(indentUnit) {
       return {
         tokenize: null,
@@ -388,6 +389,7 @@ function tokenRawString(stream, state) {
 }
 
 export const c = clike({
+  name: "c",
   keywords: words(cKeywords),
   types: cTypes,
   blockKeywords: words(cBlockKeywords),
@@ -402,6 +404,7 @@ export const c = clike({
 })
 
 export const cpp = clike({
+  name: "cpp",
   keywords: words(cKeywords + " " + cppKeywords),
   types: cTypes,
   blockKeywords: words(cBlockKeywords + " class try catch"),
@@ -440,6 +443,7 @@ export const cpp = clike({
 });
 
 export const java = clike({
+  name: "java",
   keywords: words("abstract assert break case catch class const continue default " +
                   "do else enum extends final finally for goto if implements import " +
                   "instanceof interface native new package private protected public " +
@@ -469,6 +473,7 @@ export const java = clike({
 })
 
 export const csharp = clike({
+  name: "csharp",
   keywords: words("abstract as async await base break case catch checked class const continue" +
                   " default delegate do else enum event explicit extern finally fixed for" +
                   " foreach goto if implicit in interface internal is lock namespace new" +
@@ -530,6 +535,7 @@ function tokenNestedComment(depth) {
 }
 
 export const scala = clike({
+  name: "scala",
   keywords: words(
     /* scala */
     "abstract case catch class def do else extends final finally for forSome if " +
@@ -613,6 +619,7 @@ function tokenKotlinString(tripleString){
 }
 
 export const kotlin = clike({
+  name: "kotlin",
   keywords: words(
     /*keywords*/
     "package as typealias class interface this super val operator " +
@@ -676,6 +683,7 @@ export const kotlin = clike({
 });
 
 export const shader = clike({
+  name: "shader",
   keywords: words("sampler1D sampler2D sampler3D samplerCube " +
                   "sampler1DShadow sampler2DShadow " +
                   "const attribute uniform varying " +
@@ -733,6 +741,7 @@ export const shader = clike({
 })
 
 export const nesC = clike({
+  name: "nesc",
   keywords: words(cKeywords + " as atomic async call command component components configuration event generic " +
                   "implementation includes interface module new norace nx_struct nx_union post provides " +
                   "signal task uses abstract extends"),
@@ -743,6 +752,7 @@ export const nesC = clike({
 })
 
 export const objectiveC = clike({
+  name: "objectivec",
   keywords: words(cKeywords + " " + objCKeywords),
   types: objCTypes,
   builtin: words(objCBuiltins),
@@ -759,6 +769,7 @@ export const objectiveC = clike({
 })
 
 export const objectiveCpp = clike({
+  name: "objectivecpp",
   keywords: words(cKeywords + " " + objCKeywords + " " + cppKeywords),
   types: objCTypes,
   builtin: words(objCBuiltins),
@@ -797,6 +808,7 @@ export const objectiveCpp = clike({
 })
 
 export const squirrel = clike({
+  name: "squirrel",
   keywords: words("base break clone continue const default delete enum extends function in class" +
                   " foreach local resume return this throw typeof yield constructor instanceof static"),
   types: cTypes,
@@ -833,6 +845,7 @@ function tokenCeylonString(type) {
 }
 
 export const ceylon = clike({
+  name: "ceylon",
   keywords: words("abstracts alias assembly assert assign break case catch class continue dynamic else" +
                   " exists extends finally for function given if import in interface is let module new" +
                   " nonempty object of out outer package return satisfies super switch then this throw" +
@@ -944,6 +957,7 @@ function tokenInterpolationIdentifier(stream, state) {
 }
 
 export const dart = clike({
+  name: "dart",
   keywords: words("this super static final const abstract class extends external factory " +
                   "implements mixin get native set typedef with enum throw rethrow " +
                   "assert break case continue default in return new deferred async await covariant " +

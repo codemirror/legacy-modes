@@ -10,6 +10,7 @@ export function simpleMode(states) {
     }
   }
   return {
+    name: meta.name,
     startState: function() {
       return {state: "start", pending: null, indent: hasIndentation ? [] : null};
     },

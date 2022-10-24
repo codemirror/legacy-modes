@@ -407,6 +407,7 @@ function popStateStack(state) {
 
 // the interface for the mode API
 export const xQuery = {
+  name: "xquery",
   startState: function() {
     return {
       tokenize: tokenBase,

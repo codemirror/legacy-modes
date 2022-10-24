@@ -116,6 +116,8 @@ var nextTemporaries = function(stream, context) {
 };
 
 export const smalltalk = {
+  name: "smalltalk",
+
   startState: function() {
     return new State;
   },

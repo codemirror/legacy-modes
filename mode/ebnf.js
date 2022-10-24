@@ -2,6 +2,7 @@ var commentType = {slash: 0, parenthesis: 1};
 var stateType = {comment: 0, _string: 1, characterClass: 2};
 
 export const ebnf = {
+  name: "ebnf",
   startState: function () {
     return {
       stringType: null,

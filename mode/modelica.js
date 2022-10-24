@@ -97,6 +97,7 @@ function tokenUnsignedNumber(stream, state) {
 
 // Interface
 export const modelica = {
+  name: "modelica",
   startState: function() {
     return {
       tokenize: null,

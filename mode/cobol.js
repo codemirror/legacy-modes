@@ -156,6 +156,7 @@ function isNumber(ch, stream){
   return false;
 }
 export const cobol = {
+  name: "cobol",
   startState: function () {
     return {
       indentStack: null,

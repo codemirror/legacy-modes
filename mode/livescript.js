@@ -230,6 +230,7 @@ for (var idx in Rules) {
 }
 
 export const liveScript = {
+  name: "livescript",
   startState: function(){
     return {
       next: 'start',

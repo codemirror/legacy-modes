@@ -56,6 +56,7 @@ export const factor = simpleMode({
       {regex: /\s+|./, token: null}
     ],
     languageData: {
+      name: "factor",
       dontIndentStates: ["start", "vocabulary", "string", "string3", "stack"],
       commentTokens: {line: "!"}
     }

@@ -262,6 +262,8 @@ function twTokenMacro(stream, state) {
 
 // Interface
 export const tiddlyWiki = {
+  name: "tiddlywiki",
+
   startState: function () {
     return {tokenize: tokenBase};
   },

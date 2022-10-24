@@ -70,6 +70,7 @@ function body(stream) {
 }
 
 export const http = {
+  name: "http",
   token: function(stream, state) {
     var cur = state.cur;
     if (cur != header && cur != body && stream.eatSpace()) return null;

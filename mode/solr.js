@@ -63,6 +63,8 @@ function tokenBase(stream, state) {
 }
 
 export const solr = {
+  name: "solr",
+
   startState: function() {
     return {
       tokenize: tokenBase

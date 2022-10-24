@@ -70,6 +70,7 @@ function inBlock(style, terminator) {
 }
 
 export const dtd = {
+  name: "dtd",
   startState: function() {
     return {tokenize: tokenBase,
             baseIndent: 0,

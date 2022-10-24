@@ -105,6 +105,7 @@ function popContext(state) {
 // Interface
 
 export const fcl = {
+  name: "fcl",
   startState: function(indentUnit) {
     return {
       tokenize: null,

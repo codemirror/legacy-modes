@@ -118,6 +118,7 @@ function popContext(state) {
 
 // Interface
 export const vhdl = {
+  name: "vhdl",
   startState: function(indentUnit) {
     return {
       tokenize: null,

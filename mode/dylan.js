@@ -316,6 +316,7 @@ function tokenString(quote, style) {
 
 // Interface
 export const dylan = {
+  name: "dylan",
   startState: function() {
     return {
       tokenize: tokenBase,

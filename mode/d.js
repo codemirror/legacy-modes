@@ -147,6 +147,7 @@ function popContext(state) {
 // Interface
 
 export const d = {
+  name: "d",
   startState: function(indentUnit) {
     return {
       tokenize: null,

@@ -112,6 +112,7 @@ function popContext(state) {
 // Interface
 
 export const go = {
+  name: "go",
   startState: function(indentUnit) {
     return {
       tokenize: null,

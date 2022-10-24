@@ -13,6 +13,7 @@ var reserve = "><+-.,[]".split("");
   or preceded by #
 */
 export const brainfuck = {
+  name: "brainfuck",
   startState: function() {
     return {
       commentLine: false,

@@ -120,6 +120,7 @@ function pop(state) {
 }
 
 export const r = {
+  name: "r",
   startState: function(indentUnit) {
     return {tokenize: tokenBase,
             ctx: {type: "top",

@@ -159,6 +159,7 @@ function tokenUnparsed(stream, state) {
   return "meta";
 }
 export const mirc = {
+  name: "mirc",
   startState: function() {
     return {
       tokenize: tokenBase,

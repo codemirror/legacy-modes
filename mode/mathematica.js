@@ -140,6 +140,7 @@ function tokenComment(stream, state) {
 }
 
 export const mathematica = {
+  name: "mathematica",
   startState: function() {return {tokenize: tokenBase, commentLevel: 0};},
   token: function(stream, state) {
     if (stream.eatSpace()) return null;

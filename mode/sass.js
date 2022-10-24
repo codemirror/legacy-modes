@@ -398,6 +398,7 @@ function tokenLexer(stream, state) {
 }
 
 export const sass = {
+  name: "sass",
   startState: function() {
     return {
       tokenizer: tokenBase,

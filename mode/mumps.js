@@ -111,6 +111,7 @@ function tokenBase(stream, state) {
 }
 
 export const mumps = {
+  name: "mumps",
   startState: function() {
     return {
       label: false,

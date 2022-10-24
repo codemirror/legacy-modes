@@ -277,6 +277,7 @@ function mkVBScript(parserConf) {
     }
 
     return {
+        name: "vbscript",
         startState: function() {
             return {
               tokenize: tokenBase,

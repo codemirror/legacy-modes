@@ -5,6 +5,7 @@ function errorIfNotEmpty(stream) {
 }
 
 export const asciiArmor = {
+  name: "asciiarmor",
   token: function(stream, state) {
     var m;
     if (state.state == "top") {

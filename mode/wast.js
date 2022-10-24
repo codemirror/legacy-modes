@@ -109,7 +109,8 @@ export const wast = simpleMode({
     {regex: /.*/, token: "comment"},
   ],
 
-  meta: {
+  languageData: {
+    name: "wast",
     dontIndentStates: ['comment'],
   },
 });

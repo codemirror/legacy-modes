@@ -184,6 +184,8 @@ function tokenize(stream, state) {
 }
 // Start it all
 export const puppet = {
+  name: "puppet",
+
   startState: function () {
     var state = {};
     state.inDefinition = false;

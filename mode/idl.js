@@ -264,6 +264,7 @@ function tokenBase(stream) {
 };
 
 export const idl = {
+  name: "idl",
   token: function(stream) {
     return tokenBase(stream);
   },

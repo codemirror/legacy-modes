@@ -255,6 +255,7 @@ function attvaluemaybe(type) {
   else return pass();
 }
 export const tiki = {
+  name: "tiki",
   startState: function() {
     return {tokenize: inText, cc: [], indented: 0, startOfLine: true, pluginName: null, context: null};
   },

@@ -145,6 +145,7 @@ function tokenString(quote) {
 }
 
 export const sieve = {
+  name: "sieve",
   startState: function(base) {
     return {tokenize: tokenBase,
             baseIndent: base || 0,

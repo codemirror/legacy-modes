@@ -5,6 +5,7 @@ var TOKEN_NAMES = {
 };
 
 export const diff = {
+  name: "diff",
   token: function(stream) {
     var tw_pos = stream.string.search(/[\t ]+?$/);
 

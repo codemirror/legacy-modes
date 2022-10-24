@@ -1,5 +1,6 @@
 function mkParser(lang) {
   return {
+    name: "mscgen",
     startState: startStateFn,
     copyState: copyStateFn,
     token: produceTokenFunction(lang),

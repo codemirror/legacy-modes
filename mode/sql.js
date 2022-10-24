@@ -156,6 +156,8 @@ export function sql(parserConfig) {
   }
 
   return {
+    name: "sql",
+
     startState: function() {
       return {tokenize: tokenBase, context: null};
     },

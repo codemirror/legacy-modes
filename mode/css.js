@@ -354,6 +354,7 @@ export function mkCSS(parserConfig) {
   };
 
   return {
+    name: parserConfig.name,
     startState: function() {
       return {tokenize: null,
               state: inline ? "block" : "top",
@@ -729,7 +730,7 @@ const defaults = {
   }
 }
 
-export const css = mkCSS({})
+export const css = mkCSS({name: "css"})
 
 function tokenCComment(stream, state) {
   var maybeEnd = false, ch;
@@ -744,6 +745,7 @@ function tokenCComment(stream, state) {
 }
 
 export const sCSS = mkCSS({
+  name: "scss",
   mediaTypes: mediaTypes,
   mediaFeatures: mediaFeatures,
   mediaValueKeywords: mediaValueKeywords,
@@ -785,6 +787,7 @@ export const sCSS = mkCSS({
 })
 
 export const less = mkCSS({
+  name: "less",
   mediaTypes: mediaTypes,
   mediaFeatures: mediaFeatures,
   mediaValueKeywords: mediaValueKeywords,
@@ -822,6 +825,7 @@ export const less = mkCSS({
 })
 
 export const gss = mkCSS({
+  name: "gss",
   documentTypes: documentTypes,
   mediaTypes: mediaTypes,
   mediaFeatures: mediaFeatures,

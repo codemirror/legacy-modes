@@ -222,6 +222,7 @@ var wellKnownWords = (function() {
 })();
 
 export const haskell = {
+  name: "haskell",
   startState: function ()  { return { f: normal }; },
   copyState:  function (s) { return { f: s.f }; },
 

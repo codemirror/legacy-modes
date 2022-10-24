@@ -158,6 +158,7 @@ function popContext(state) {
 }
 
 export const swift = {
+  name: "swift",
   startState: function() {
     return {
       prev: null,

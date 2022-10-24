@@ -247,6 +247,7 @@ function mkGas(arch) {
   }
 
   return {
+    name: "gas",
     startState: function() {
       return {
         tokenize: null

@@ -59,6 +59,7 @@ function transitState(currState, c) {
 }
 
 export const ntriples = {
+  name: "ntriples",
   startState: function() {
     return {
       location : Location.PRE_SUBJECT,

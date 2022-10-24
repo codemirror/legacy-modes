@@ -102,6 +102,8 @@ function tokenCommentBraces(stream, state) {
 // Interface
 
 export const pascal = {
+  name: "pascal",
+
   startState: function() {
     return {tokenize: null};
   },

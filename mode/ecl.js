@@ -133,6 +133,7 @@ function popContext(state) {
 // Interface
 
 export const ecl = {
+  name: "ecl",
   startState: function(indentUnit) {
     return {
       tokenize: null,

@@ -219,6 +219,7 @@ function is(value, test) {
 }
 
 export const clojure = {
+  name: "clojure",
   startState: function () {
     return {
       ctx: {prev: null, start: 0, indentTo: 0},

@@ -111,6 +111,7 @@ function basicToken(stream,state){
 }
 
 export const asterisk = {
+  name: "asterisk",
   startState: function() {
     return {
       blockComment: false,

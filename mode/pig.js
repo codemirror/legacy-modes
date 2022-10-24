@@ -126,6 +126,8 @@ function tokenBase(stream, state) {
 
 // Interface
 export const pig = {
+  name: "pig",
+
   startState: function() {
     return {
       tokenize: tokenBase,

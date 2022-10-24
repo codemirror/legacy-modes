@@ -70,6 +70,7 @@ var stringEater = function(type) {
 };
 
 export const apl = {
+  name: "apl",
   startState: function() {
     return {
       prev: false,

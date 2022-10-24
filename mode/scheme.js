@@ -61,6 +61,7 @@ function processEscapedSequence(stream, options) {
 }
 
 export const scheme = {
+  name: "scheme",
   startState: function () {
     return {
       indentStack: null,

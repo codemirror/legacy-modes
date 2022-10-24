@@ -46,6 +46,7 @@ export const rust = simpleMode({
     {regex: /.*/, token: "comment"}
   ],
   languageData: {
+    name: "rust",
     dontIndentStates: ["comment"],
     indentOnInput: /^\s*\}$/,
     commentTokens: {line: "//", block: {open: "/*", close: "*/"}}

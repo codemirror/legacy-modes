@@ -151,6 +151,7 @@ function tokenBase (stream, state) {
 };
 
 export const jinja2 = {
+  name: "jinja2",
   startState: function () {
     return {tokenize: tokenBase, inbrackets: 0, inbraces: 0};
   },

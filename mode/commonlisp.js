@@ -67,6 +67,7 @@ function inComment(stream, state) {
 }
 
 export const commonLisp = {
+  name: "commonlisp",
   startState: function () {
     return {ctx: {prev: null, start: 0, indentTo: 0}, lastType: null, tokenize: base};
   },

@@ -156,6 +156,7 @@ function tokenString(quote) {
 // Interface
 
 export const fortran = {
+  name: "fortran",
   startState: function() {
     return {tokenize: null};
   },

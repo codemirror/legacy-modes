@@ -117,6 +117,7 @@ function tokenString(quote) {
 }
 
 export const nginx = {
+  name: "nginx",
   startState: function() {
     return {tokenize: tokenBase,
             baseIndent: 0,

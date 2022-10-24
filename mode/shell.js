@@ -133,6 +133,7 @@ function tokenize(stream, state) {
 };
 
 export const shell = {
+  name: "shell",
   startState: function() {return {tokens:[]};},
   token: function(stream, state) {
     return tokenize(stream, state);

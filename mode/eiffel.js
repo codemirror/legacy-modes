@@ -117,6 +117,7 @@ function readQuoted(quote, style,  unescaped) {
 }
 
 export const eiffel = {
+  name: "eiffel",
   startState: function() {
     return {tokenize: [tokenBase]};
   },

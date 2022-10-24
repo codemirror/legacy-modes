@@ -1,4 +1,6 @@
 export const properties = {
+  name: "properties",
+
   token: function(stream, state) {
     var sol = stream.sol() || state.afterSection;
     var eol = stream.eol();

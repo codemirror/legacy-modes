@@ -88,6 +88,7 @@ function readToken(stream, state) {
 };
 
 export const mbox = {
+  name: "mbox",
   startState: function() {
     return {
       // Is in a mbox separator

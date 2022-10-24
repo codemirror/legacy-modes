@@ -1,5 +1,6 @@
 import {StreamParser} from "@codemirror/language"
 export declare function clike(conf: {
+  name: string,
   statementIndentUnit?: number,
   dontAlignCalls?: boolean,
   keywords?: {[word: string]: any},

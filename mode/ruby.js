@@ -222,6 +222,7 @@ function readBlockComment(stream, state) {
 }
 
 export const ruby = {
+  name: "ruby",
   startState: function(indentUnit) {
     return {tokenize: [tokenBase],
             indented: 0,

@@ -670,6 +670,7 @@ states.variableName = function(type, stream, state) {
 };
 
 export const stylus = {
+  name: "stylus",
   startState: function() {
     return {
       tokenize: null,

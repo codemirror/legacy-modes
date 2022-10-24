@@ -328,6 +328,8 @@ export function mkPython(parserConf) {
   }
 
   return {
+    name: "python",
+
     startState: function() {
       return {
         tokenize: tokenBase,

@@ -58,6 +58,7 @@ function searchWordList (wordList, word) {
   return undefined;
 }
 export const forth = {
+  name: "forth",
   startState: function() {
     return {
       state: '',

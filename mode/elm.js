@@ -212,6 +212,7 @@ var wellKnownWords = {
 };
 
 export const elm = {
+  name: "elm",
   startState: function ()  { return { f: normal() }; },
   copyState:  function (s) { return { f: s.f }; },
 

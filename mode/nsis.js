@@ -70,6 +70,7 @@ export const nsis = simpleMode({
     {regex: /.*/, token: "comment"}
   ],
   languageData: {
+    name: "nsis",
     indentOnInput: /^\s*((Function|PageEx|Section|Section(Group)?)End|(\!(endif|macroend))|\$\{(End(If|Unless|While)|Loop(Until)|Next)\})$/i,
     commentTokens: {line: "#", block: {open: "/*", close: "*/"}}
   }

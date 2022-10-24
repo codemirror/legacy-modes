@@ -143,6 +143,7 @@ function readToken(stream, state) {
 };
 
 export const webIDL = {
+  name: "webidl",
   startState: function() {
     return {
       // Is in multiline comment

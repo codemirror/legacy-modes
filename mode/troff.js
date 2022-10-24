@@ -55,6 +55,7 @@ function tokenize(stream, state) {
 };
 
 export const troff = {
+  name: "troff",
   startState: function() {return {tokens:[]};},
   token: function(stream, state) {
     return tokenize(stream, state);

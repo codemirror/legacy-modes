@@ -162,6 +162,8 @@ function tokenUnparsed(stream, state) {
 // Interface
 
 export const velocity = {
+  name: "velocity",
+
   startState: function() {
     return {
       tokenize: tokenBase,

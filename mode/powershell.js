@@ -359,6 +359,8 @@ function tokenMultiString(stream, state) {
 }
 
 export const powerShell = {
+  name: "powershell",
+
   startState: function() {
     return {
       returnStack: [],

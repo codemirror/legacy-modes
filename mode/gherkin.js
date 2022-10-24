@@ -1,4 +1,5 @@
 export const gherkin = {
+  name: "gherkin",
   startState: function () {
     return {
       lineNumber: 0,

@@ -160,6 +160,7 @@ function popContext(state) {
 // Interface
 
 export const groovy = {
+  name: "groovy",
   startState: function(indentUnit) {
     return {
       tokenize: [tokenBase],

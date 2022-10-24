@@ -102,6 +102,8 @@ function string(quote) {
 }
 
 export const lua = {
+  name: "lua",
+
   startState: function() {
     return {basecol: 0, indentDepth: 0, cur: normal};
   },

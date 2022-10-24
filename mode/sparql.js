@@ -99,6 +99,8 @@ function popContext(state) {
 }
 
 export const sparql = {
+  name: "sparql",
+
   startState: function() {
     return {tokenize: tokenBase,
             context: null,
