@@ -1,3 +1,13 @@
+## 6.2.0 (2022-10-24)
+
+### Bug fixes
+
+Include type declarations for mode/simple-mode.js.
+
+### New features
+
+Include a name for each mode in the stream parser objects.
+
 ## 6.1.0 (2022-06-17)
 
 ### Bug fixes
