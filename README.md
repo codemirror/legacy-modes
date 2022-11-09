@@ -530,6 +530,13 @@ let view = new EditorView({
 
 <dd></dd>
 </dl>
+<h3 id="user-content-pegjs">mode/<a href="#user-content-pegjs">pegjs</a></h3>
+<dl>
+<dt id="user-content-pegjs.pegjs">
+  <code><strong><a href="#user-content-pegjs.pegjs">pegjs</a></strong>: <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
+
+<dd></dd>
+</dl>
 <h3 id="user-content-perl">mode/<a href="#user-content-perl">perl</a></h3>
 <dl>
 <dt id="user-content-perl.perl">
