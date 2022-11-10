@@ -31,9 +31,7 @@
     "@codemirror/language": "^6.0.0"
   },
   "devDependencies": {
-    "@rollup/plugin-typescript": "^9.0.2",
     "rollup": "^2.35.1",
-    "tslib": "^2.4.1",
     "typescript": "^4.1.3"
   },
   "repository": {

@@ -1,24 +1,11 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 // Ported from the PEGJS support included in CodeMirror 5
-import { StreamParser, StringStream } from "@codemirror/language";
 import { javascript } from "./javascript";
-
-function identifier(stream: StringStream) {
+function identifier(stream) {
     return stream.match(/^[a-zA-Z_][a-zA-Z0-9_]*/);
 }
-
-type State = {
-    inString: boolean;
-    stringType: string | null | undefined;
-    inComment: boolean;
-    inCharacterClass: boolean;
-    braced: number;
-    lhs: boolean;
-    localState: unknown;
-};
-
-export const pegjs: StreamParser<State> = {
+export const pegjs = {
     name: "pegjs",
     startState: function () {
         return {
@@ -33,11 +20,9 @@ export const pegjs: StreamParser<State> = {
     },
     token: function (stream, state) {
         if (stream)
-            if (
-                !state.inString &&
+            if (!state.inString &&
                 !state.inComment &&
-                (stream.peek() === '"' || stream.peek() === "'")
-            ) {
+                (stream.peek() === '"' || stream.peek() === "'")) {
                 //check for state changes
                 state.stringType = stream.peek();
                 stream.next(); // Skip quote
@@ -46,46 +31,53 @@ export const pegjs: StreamParser<State> = {
         if (!state.inString && !state.inComment && stream.match("/*")) {
             state.inComment = true;
         }
-
         //return state
         if (state.inString) {
             while (state.inString && !stream.eol()) {
                 if (stream.peek() === state.stringType) {
                     stream.next(); // Skip quote
                     state.inString = false; // Clear flag
-                } else if (stream.peek() === "\\") {
+                }
+                else if (stream.peek() === "\\") {
                     stream.next();
                     stream.next();
-                } else {
+                }
+                else {
                     stream.match(/^.[^\\"']*/);
                 }
             }
             return state.lhs ? "property string" : "string"; // Token style
-        } else if (state.inComment) {
+        }
+        else if (state.inComment) {
             while (state.inComment && !stream.eol()) {
                 if (stream.match("*/")) {
                     state.inComment = false; // Clear flag
-                } else {
+                }
+                else {
                     stream.match(/^.[^*]*/);
                 }
             }
             return "comment";
-        } else if (state.inCharacterClass) {
+        }
+        else if (state.inCharacterClass) {
             while (state.inCharacterClass && !stream.eol()) {
                 if (!(stream.match(/^[^\]\\]+/) || stream.match(/^\\./))) {
                     state.inCharacterClass = false;
                 }
             }
-        } else if (stream.peek() === "[") {
+        }
+        else if (stream.peek() === "[") {
             stream.next();
             state.inCharacterClass = true;
             return "bracket";
-        } else if (stream.match("//")) {
+        }
+        else if (stream.match("//")) {
             stream.skipToEnd();
             return "comment";
-        } else if (state.braced || stream.peek() === "{") {
+        }
+        else if (state.braced || stream.peek() === "{") {
             if (state.localState === null) {
-                state.localState = (javascript.startState as any)();
+                state.localState = javascript.startState();
             }
             var token = javascript.token(stream, state.localState);
             var text = stream.current();
@@ -93,21 +85,25 @@ export const pegjs: StreamParser<State> = {
                 for (var i = 0; i < text.length; i++) {
                     if (text[i] === "{") {
                         state.braced++;
-                    } else if (text[i] === "}") {
+                    }
+                    else if (text[i] === "}") {
                         state.braced--;
                     }
                 }
             }
             return token;
-        } else if (identifier(stream)) {
+        }
+        else if (identifier(stream)) {
             if (stream.peek() === ":") {
                 return "variable";
             }
             return "variable-2";
-        } else if (["[", "]", "(", ")"].indexOf(stream.peek() || "") !== -1) {
+        }
+        else if (["[", "]", "(", ")"].indexOf(stream.peek() || "") !== -1) {
             stream.next();
             return "bracket";
-        } else if (!stream.eatSpace()) {
+        }
+        else if (!stream.eatSpace()) {
             stream.next();
         }
         return null;
