@@ -1,3 +1,9 @@
+## 6.3.0 (2022-11-18)
+
+### New features
+
+Add the old PegJS mode.
+
 ## 6.2.0 (2022-10-24)
 
 ### Bug fixes
