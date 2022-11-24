@@ -1,3 +1,9 @@
+## 6.3.1 (2022-11-24)
+
+### Bug fixes
+
+In JavaScript, properly parse keywords like `static` when in front of a private property.
+
 ## 6.3.0 (2022-11-18)
 
 ### New features
