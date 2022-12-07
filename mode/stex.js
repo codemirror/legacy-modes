@@ -81,7 +81,7 @@ function mkStex(mathMode) {
   function normal(source, state) {
     var plug;
     // Do we look like '\command' ?  If so, attempt to apply the plugin 'command'
-    if (source.match(/^\\[a-zA-Z@]+/)) {
+    if (source.match(/^\\[a-zA-Z@\xc0-\u1fff\u2060-\uffff]+/)) {
       var cmdName = source.current().slice(1);
       plug = plugins.hasOwnProperty(cmdName) ? plugins[cmdName] : plugins["DEFAULT"];
       plug = new plug();
