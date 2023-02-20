@@ -90,7 +90,7 @@ let view = new EditorView({
 <h3 id="user-content-clike">mode/<a href="#user-content-clike">clike</a></h3>
 <dl>
 <dt id="user-content-clike.clike">
-  <code><strong><a href="#user-content-clike.clike">clike</a></strong>(<a id="user-content-clike.clike^conf" href="#user-content-clike.clike^conf">conf</a>: {statementIndentUnit&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, dontAlignCalls&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, keywords&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, types&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, builtin&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, blockKeywords&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, atoms&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, hooks&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, multiLineStrings&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, indentStatements&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, indentSwitch&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, namespaceSeparator&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, isPunctuationChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, numberStart&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, number&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isOperatorChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isIdentifierChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isReservedIdentifier&#8288;?: fn(<a id="user-content-clike.clike^conf.isreservedidentifier^id" href="#user-content-clike.clike^conf.isreservedidentifier^id">id</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>}) → <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
+  <code><strong><a href="#user-content-clike.clike">clike</a></strong>(<a id="user-content-clike.clike^conf" href="#user-content-clike.clike^conf">conf</a>: {name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, statementIndentUnit&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>, dontAlignCalls&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, keywords&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, types&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, builtin&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, blockKeywords&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, atoms&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, hooks&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt;, multiLineStrings&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, indentStatements&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, indentSwitch&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>, namespaceSeparator&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, isPunctuationChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, numberStart&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, number&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isOperatorChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isIdentifierChar&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a>, isReservedIdentifier&#8288;?: fn(<a id="user-content-clike.clike^conf.isreservedidentifier^id" href="#user-content-clike.clike^conf.isreservedidentifier^id">id</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>}) → <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
 
 <dd></dd>
 <dt id="user-content-clike.c">
@@ -636,6 +636,13 @@ let view = new EditorView({
 
 <dd></dd>
 </dl>
+<h3 id="user-content-sass">mode/<a href="#user-content-sass">sass</a></h3>
+<dl>
+<dt id="user-content-sass.sass">
+  <code><strong><a href="#user-content-sass.sass">sass</a></strong>: <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
+
+<dd></dd>
+</dl>
 <h3 id="user-content-scheme">mode/<a href="#user-content-scheme">scheme</a></h3>
 <dl>
 <dt id="user-content-scheme.scheme">
@@ -654,6 +661,49 @@ let view = new EditorView({
 <dl>
 <dt id="user-content-sieve.sieve">
   <code><strong><a href="#user-content-sieve.sieve">sieve</a></strong>: <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
+
+<dd></dd>
+</dl>
+<h3 id="user-content-simple-mode">mode/<a href="#user-content-simple-mode">simple-mode</a></h3>
+<dl>
+<dt id="user-content-simple-mode.rule">
+  <h4>
+    <code>interface</code>
+    <a href="#user-content-simple-mode.rule">Rule</a></h4>
+</dt>
+
+<dd><dl><dt id="user-content-simple-mode.rule.regex">
+  <code><strong><a href="#user-content-simple-mode.rule.regex">regex</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp">RegExp</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.token">
+  <code><strong><a href="#user-content-simple-mode.rule.token">token</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>[] | fn(<a id="user-content-simple-mode.rule.token^matches" href="#user-content-simple-mode.rule.token^matches">matches</a>: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#Return_value">RegExpMatchArray</a>) → <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>[] | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined">undefined</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.sol">
+  <code><strong><a href="#user-content-simple-mode.rule.sol">sol</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.next">
+  <code><strong><a href="#user-content-simple-mode.rule.next">next</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.push">
+  <code><strong><a href="#user-content-simple-mode.rule.push">push</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.pop">
+  <code><strong><a href="#user-content-simple-mode.rule.pop">pop</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.indent">
+  <code><strong><a href="#user-content-simple-mode.rule.indent">indent</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.dedent">
+  <code><strong><a href="#user-content-simple-mode.rule.dedent">dedent</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code></dt>
+
+<dd></dd><dt id="user-content-simple-mode.rule.dedentiflinestart">
+  <code><strong><a href="#user-content-simple-mode.rule.dedentiflinestart">dedentIfLineStart</a></strong>&#8288;?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code></dt>
+
+<dd></dd></dl>
+
+</dd>
+<dt id="user-content-simple-mode.simplemode">
+  <code><strong><a href="#user-content-simple-mode.simplemode">simpleMode</a></strong>&lt;<a id="user-content-simple-mode.simplemode^k" href="#user-content-simple-mode.simplemode^k">K</a> extends <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>&gt;(<a id="user-content-simple-mode.simplemode^states" href="#user-content-simple-mode.simplemode^states">states</a>: {[<a id="user-content-simple-mode.simplemode^states^p" href="#user-content-simple-mode.simplemode^states^p">P</a> in <a href="#user-content-simple-mode.simplemode^k">K</a>]: <a href="#user-content-simple-mode.simplemode^states^p">P</a> extends &quot;languageData&quot; ? <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&lt;any&gt; : <a href="#user-content-simple-mode.rule">Rule</a>[]} &amp; {start: <a href="#user-content-simple-mode.rule">Rule</a>[]}) → <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
 
 <dd></dd>
 </dl>

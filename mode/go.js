@@ -149,10 +149,7 @@ export const go = {
   indent: function(state, textAfter, cx) {
     if (state.tokenize != tokenBase && state.tokenize != null) return null;
     var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
-    if (ctx.type == "case" && /^(?:case|default)\b/.test(textAfter)) {
-      state.context.type = "}";
-      return ctx.indented;
-    }
+    if (ctx.type == "case" && /^(?:case|default)\b/.test(textAfter)) return ctx.indented;
     var closing = firstChar == ctx.type;
     if (ctx.align) return ctx.column + (closing ? 0 : 1);
     else return ctx.indented + (closing ? 0 : cx.unit);
