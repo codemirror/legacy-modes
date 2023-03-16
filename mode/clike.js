@@ -577,6 +577,7 @@ export const scala = clike({
       return state.tokenize(stream, state);
     },
     "'": function(stream) {
+      if (stream.match(/^(\\[^'\s]+|[^\\'])'/)) return "character"
       stream.eatWhile(/[\w\$_\xa1-\uffff]/);
       return "atom";
     },
