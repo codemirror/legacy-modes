@@ -1,3 +1,9 @@
+## 6.3.2 (2023-03-20)
+
+### Bug fixes
+
+Fix tokenizing of character literals in the Scala mode.
+
 ## 6.3.1 (2022-11-24)
 
 ### Bug fixes
