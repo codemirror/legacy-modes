@@ -55,9 +55,9 @@ function tokenBase(stream, state) {
   }
   if (ch == "<") {
     if (stream.match("<<")) return "operator"
-    var heredoc = stream.match(/^<-?\s*['"]?([^'"]*)['"]?/)
+    var heredoc = stream.match(/^<-?\s*(?:['"]([^'"]*)['"]|([^'"\s]*))/)
     if (heredoc) {
-      state.tokens.unshift(tokenHeredoc(heredoc[1]))
+      state.tokens.unshift(tokenHeredoc(heredoc[1] || heredoc[2]))
       return 'string.special'
     }
   }
