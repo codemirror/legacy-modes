@@ -18,6 +18,9 @@ var keywords = wordRegexp(["base", "prefix", "select", "distinct", "reduced", "c
                            "true", "false", "with",
                            "data", "copy", "to", "move", "add", "create", "drop", "clear", "load", "into"]);
 var operatorChars = /[*+\-<>=&|\^\/!\?]/;
+var PN_CHARS = "[A-Za-z_\\-0-9]";
+var PREFIX_START = new RegExp("[A-Za-z]");
+var PREFIX_REMAINDER = new RegExp("((" + PN_CHARS + "|\\.)*(" + PN_CHARS + "))?:");
 
 function tokenBase(stream, state) {
   var ch = stream.next();
@@ -56,20 +59,18 @@ function tokenBase(stream, state) {
     stream.eatWhile(/[a-z\d\-]/i);
     return "meta";
   }
-  else {
-    stream.eatWhile(/[_\w\d]/);
-    if (stream.eat(":")) {
-      eatPnLocal(stream);
-      return "atom";
-    }
-    var word = stream.current();
-    if (ops.test(word))
-      return "builtin";
-    else if (keywords.test(word))
-      return "keyword";
-    else
-      return "variable";
+  else if (PREFIX_START.test(ch) && stream.match(PREFIX_REMAINDER)) {
+    eatPnLocal(stream);
+    return "atom";
   }
+  stream.eatWhile(/[_\w\d]/);
+  var word = stream.current();
+  if (ops.test(word))
+    return "builtin";
+  else if (keywords.test(word))
+    return "keyword";
+  else
+    return "variable";
 }
 
 function eatPnLocal(stream) {

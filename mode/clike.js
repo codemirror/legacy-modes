@@ -205,7 +205,8 @@ export function clike(parserConfig) {
     },
 
     indent: function(state, textAfter, context) {
-      if (state.tokenize != tokenBase && state.tokenize != null || state.typeAtEndOfLine) return null;
+      if (state.tokenize != tokenBase && state.tokenize != null || state.typeAtEndOfLine && isTopScope(state.context))
+        return null;
       var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
       var closing = firstChar == ctx.type;
       if (ctx.type == "statement" && firstChar == "}") ctx = ctx.prev;
@@ -476,8 +477,8 @@ export const csharp = clike({
   name: "csharp",
   keywords: words("abstract as async await base break case catch checked class const continue" +
                   " default delegate do else enum event explicit extern finally fixed for" +
-                  " foreach goto if implicit in interface internal is lock namespace new" +
-                  " operator out override params private protected public readonly ref return sealed" +
+                  " foreach goto if implicit in init interface internal is lock namespace new" +
+                  " operator out override params private protected public readonly record ref required return sealed" +
                   " sizeof stackalloc static struct switch this throw try typeof unchecked" +
                   " unsafe using virtual void volatile while add alias ascending descending dynamic from get" +
                   " global group into join let orderby partial remove select set value var yield"),
@@ -486,7 +487,7 @@ export const csharp = clike({
                " UInt64 bool byte char decimal double short int long object"  +
                " sbyte float string ushort uint ulong"),
   blockKeywords: words("catch class do else finally for foreach if struct switch try while"),
-  defKeywords: words("class interface namespace struct var"),
+  defKeywords: words("class interface namespace record struct var"),
   typeFirstDefinitions: true,
   atoms: words("true false null"),
   hooks: {
@@ -885,6 +886,7 @@ export const ceylon = clike({
       return state.tokenize(stream, state);
     },
     "'": function(stream) {
+      if (stream.match(/^(\\[^'\s]+|[^\\'])'/)) return "string.special"
       stream.eatWhile(/[\w\$_\xa1-\uffff]/);
       return "atom";
     },
@@ -960,10 +962,10 @@ function tokenInterpolationIdentifier(stream, state) {
 export const dart = clike({
   name: "dart",
   keywords: words("this super static final const abstract class extends external factory " +
-                  "implements mixin get native set typedef with enum throw rethrow " +
-                  "assert break case continue default in return new deferred async await covariant " +
-                  "try catch finally do else for if switch while import library export " +
-                  "part of show hide is as extension on yield late required"),
+                  "implements mixin get native set typedef with enum throw rethrow assert break case " +
+                  "continue default in return new deferred async await covariant try catch finally " +
+                  "do else for if switch while import library export part of show hide is as extension " +
+                  "on yield late required sealed base interface when inline"),
   blockKeywords: words("try catch finally do else for if switch while"),
   builtin: words("void bool num int double dynamic var String Null Never"),
   atoms: words("true false null"),

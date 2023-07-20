@@ -639,7 +639,7 @@ function mkJavaScript(parserConfig) {
   }
   function continueQuasiType(type) {
    if (type == "}") {
-      cx.marked = "string-2";
+      cx.marked = "string.special";
       cx.state.tokenize = tokenQuasi;
       return cont(quasiType);
     }
