@@ -1,3 +1,9 @@
+## 6.3.3 (2023-07-20)
+
+### Bug fixes
+
+In Shell mode, don't allow spaces in heredoc tokens.
+
 ## 6.3.2 (2023-03-20)
 
 ### Bug fixes
