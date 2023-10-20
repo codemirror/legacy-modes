@@ -1,6 +1,6 @@
 var isStringChar = /[^\s\|\!\+\-\*\?\~\^\&\:\(\)\[\]\{\}\"\\]/;
 var isOperatorChar = /[\|\!\+\-\*\?\~\^\&]/;
-var isOperatorString = /^(OR|AND|NOT|TO)$/i;
+var isOperatorString = /^(OR|AND|NOT|TO)$/;
 
 function isNumber(word) {
   return parseFloat(word).toString() === word;
