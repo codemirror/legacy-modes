@@ -572,6 +572,13 @@ let view = new EditorView({
 
 <dd></dd>
 </dl>
+<h3 id="user-content-pug">mode/<a href="#user-content-pug">pug</a></h3>
+<dl>
+<dt id="user-content-pug.pug">
+  <code><strong><a href="#user-content-pug.pug">pug</a></strong>: <a href="https://codemirror.net/docs/ref#language.StreamParser">StreamParser</a>&lt;unknown&gt;</code></dt>
+
+<dd></dd>
+</dl>
 <h3 id="user-content-puppet">mode/<a href="#user-content-puppet">puppet</a></h3>
 <dl>
 <dt id="user-content-puppet.puppet">
