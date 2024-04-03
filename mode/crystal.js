@@ -365,7 +365,7 @@ function tokenHereDoc(phrase, embed) {
           return "string";
         }
 
-        escaped = embed && stream.next() == "\\";
+        escaped = stream.next() == "\\" && embed;
       } else {
         stream.next();
         escaped = false;
