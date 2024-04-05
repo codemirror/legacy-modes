@@ -1,3 +1,15 @@
+## 6.4.0 (2024-04-05)
+
+### Bug fixes
+
+Only match Solr operator words when they are upper-case.
+
+Fix an infinite loop when tokenizing heredoc strings in the Crystal mode.
+
+### New features
+
+Add the old Pug mode.
+
 ## 6.3.3 (2023-07-20)
 
 ### Bug fixes
