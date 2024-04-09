@@ -20,8 +20,8 @@ function base(stream, state) {
   if (ch == "\\") ch = stream.next();
 
   if (ch == '"') return (state.tokenize = inString)(stream, state);
-  else if (ch == "(" || ch == "[") { type = "open"; return "bracket"; }
-  else if (ch == ")" || ch == "]") { type = "close"; return "bracket"; }
+  else if (ch == "(") { type = "open"; return "bracket"; }
+  else if (ch == ")") { type = "close"; return "bracket"; }
   else if (ch == ";") { stream.skipToEnd(); type = "ws"; return "comment"; }
   else if (/['`,@]/.test(ch)) return null;
   else if (ch == "|") {
