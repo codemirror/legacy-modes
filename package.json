@@ -16,10 +16,10 @@
     "url": "http://marijnhaverbeke.nl"
   },
   "type": "module",
-  "types": "dist/index.d.ts",
   "module": "dist/index.js",
   "exports": {
     "./mode/*": {
+      "types": "./mode/*.d.ts",
       "import": "./mode/*.js",
       "require": "./mode/*.cjs"
     },
