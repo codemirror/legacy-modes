@@ -709,11 +709,11 @@ export const stylus = {
 /^\s*\/(\/|\*)/.test(textAfter) ||
           /^\s*\/\*/.test(prevLineFirstWord) ||
           /^\s*[\w-\.\[\]\'\"]+\s*(\?|:|\+)?=/i.test(textAfter) ||
-/^(\+|-)?[a-z][\w-]*\(/i.test(textAfter) ||
-/^return/.test(textAfter) ||
-              wordIsBlock(lineFirstWord)) {
-            indent = lineIndent;
-          } else if (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(ch) || wordIsTag(lineFirstWord)) {
+          /^(\+|-)?[a-z][\w-]*\(/i.test(textAfter) ||
+          /^return/.test(textAfter) ||
+          wordIsBlock(lineFirstWord)) {
+        indent = lineIndent;
+      } else if (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(ch) || wordIsTag(lineFirstWord)) {
         if (/\,\s*$/.test(prevLineFirstWord)) {
           indent = prevLineIndent;
         } else if (!state.sol() && (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(prevLineFirstWord) || wordIsTag(prevLineFirstWord))) {
