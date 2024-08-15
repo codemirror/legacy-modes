@@ -1,3 +1,11 @@
+## 6.4.1 (2024-08-15)
+
+### Bug fixes
+
+Stop treating closing brackets as brackets in the Common Lisp mode.
+
+Fix a bug where the Stylus mode would crash when queried for indentation.
+
 ## 6.4.0 (2024-04-05)
 
 ### Bug fixes
