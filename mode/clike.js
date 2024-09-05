@@ -969,6 +969,8 @@ export const dart = clike({
   blockKeywords: words("try catch finally do else for if switch while"),
   builtin: words("void bool num int double dynamic var String Null Never"),
   atoms: words("true false null"),
+  // clike numbers without the suffixes, and with '_' separators.
+  number: /^(?:0x[a-f\d_]+|(?:[\d_]+\.?[\d_]*|\.[\d_]+)(?:e[-+]?[\d_]+)?)/i,
   hooks: {
     "@": function(stream) {
       stream.eatWhile(/[\w\$_\.]/);
