@@ -1,3 +1,11 @@
+## 6.4.2 (2024-11-05)
+
+### Bug fixes
+
+Fix an issue in the Groovy mode where interpolated variable style would continue after whitespace.
+
+Add support for underscore separators in numbers in the Dart mode.
+
 ## 6.4.1 (2024-08-15)
 
 ### Bug fixes
