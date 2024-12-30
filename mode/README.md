@@ -23,7 +23,7 @@ we have a [code of
 conduct](http://contributor-covenant.org/version/1/1/0/) that applies
 to communication around the project.
 
-## Example
+## Usage
 
 Using modes from this package works like this:
 
