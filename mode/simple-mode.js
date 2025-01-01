@@ -110,7 +110,7 @@ function tokenFunction(states) {
 
 function indentFunction(states, meta) {
   return function(state, textAfter) {
-    if (state.indent == null || meta.dontIndentStates && meta.doneIndentState.indexOf(state.state) > -1)
+    if (state.indent == null || meta.dontIndentStates && meta.dontIndentState.indexOf(state.state) > -1)
       return null
 
     var pos = state.indent.length - 1, rules = states[state.state];
