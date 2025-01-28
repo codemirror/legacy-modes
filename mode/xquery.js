@@ -129,7 +129,7 @@ function tokenBase(stream, state) {
   }
   // quoted string
   else if (!isEQName && (ch === '"' || ch === "'"))
-    return chain(stream, state, tokenString(ch));
+    return startString(stream, state, ch);
   // variable
   else if(ch === "$") {
     return chain(stream, state, tokenVariable);
@@ -229,40 +229,27 @@ function tokenComment(stream, state) {
 function tokenString(quote, f) {
   return function(stream, state) {
     var ch;
-
-    if(isInString(state) && stream.current() == quote) {
-      popStateStack(state);
-      if(f) state.tokenize = f;
-      return "string";
-    }
-
-    pushStateStack(state, { type: "string", name: quote, tokenize: tokenString(quote, f) });
-
-    // if we're in a string and in an XML block, allow an embedded code block
-    if(stream.match("{", false) && isInXmlAttributeBlock(state)) {
-      state.tokenize = tokenBase;
-      return "string";
-    }
-
-
     while (ch = stream.next()) {
-      if (ch ==  quote) {
+      if (ch == quote) {
         popStateStack(state);
-        if(f) state.tokenize = f;
+        if (f) state.tokenize = f;
         break;
-      }
-      else {
+      } else if (stream.match("{", false) && isInXmlAttributeBlock(state)) {
         // if we're in a string and in an XML block, allow an embedded code block in an attribute
-        if(stream.match("{", false) && isInXmlAttributeBlock(state)) {
-          state.tokenize = tokenBase;
-          return "string";
-        }
-
+        pushStateStack(state, { type: "codeblock"});
+        state.tokenize = tokenBase;
+        return "string";
       }
     }
 
     return "string";
   };
+}
+
+function startString(stream, state, quote, f) {
+  let tokenize = tokenString(quote, f);
+  pushStateStack(state, { type: "string", name: quote, tokenize });
+  return chain(stream, state, tokenize);
 }
 
 // tokenizer for variables
@@ -322,7 +309,7 @@ function tokenAttribute(stream, state) {
     return null;
   // quoted string
   if (ch == '"' || ch == "'")
-    return chain(stream, state, tokenString(ch, tokenAttribute));
+    return startString(stream, state, ch, tokenAttribute);
 
   if(!isInXmlAttributeBlock(state))
     pushStateStack(state, { type: "attribute", tokenize: tokenAttribute});
