@@ -236,7 +236,10 @@ function tokenString(quote, f) {
       return "string";
     }
 
-    pushStateStack(state, { type: "string", name: quote, tokenize: tokenString(quote, f) });
+    //skip pushing the token into the stack if a new line is detected
+    if(stream.current() !== '') {
+      pushStateStack(state, { type: "string", name: quote, tokenize: tokenString(quote, f) });
+    }
 
     // if we're in a string and in an XML block, allow an embedded code block
     if(stream.match("{", false) && isInXmlAttributeBlock(state)) {
