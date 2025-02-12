@@ -1,3 +1,13 @@
+## 6.4.3 (2025-02-12)
+
+### Bug fixes
+
+Make Pascal keyword matching case-insensitive.
+
+Fix a crash in simple-mode.js when using the `dontIndentStates` feature.
+
+Fix a bug in tokenizing multiline strings in xQuery.
+
 ## 6.4.2 (2024-11-05)
 
 ### Bug fixes
