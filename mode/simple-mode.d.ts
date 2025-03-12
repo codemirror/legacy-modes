@@ -10,4 +10,5 @@ export interface Rule {
   dedent?: boolean | undefined;
   dedentIfLineStart?: boolean | undefined;
 }
-export declare function simpleMode<K extends string>(states: { [P in K]: P extends "languageData" ? {[name: string]: any} : Rule[] } & { start: Rule[] }): StreamParser<unknown>
+export declare function simpleMode<K extends string>(
+  states: { [P in K]: P extends "languageData" ? {[name: string]: any} : Rule[] } & { start: Rule[] }): StreamParser<unknown>

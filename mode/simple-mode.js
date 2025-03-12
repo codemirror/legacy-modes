@@ -22,6 +22,7 @@ export function simpleMode(states) {
     },
     token: tokenFunction(states_),
     indent: indentFunction(states_, meta),
+    mergeTokens: meta.mergeTokens,
     languageData: meta
   }
 };
