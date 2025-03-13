@@ -1,3 +1,9 @@
+## 6.5.0 (2025-03-13)
+
+### New features
+
+Simple modes can now include a `mergeTokens` option in their language data to disable token merging.
+
 ## 6.4.3 (2025-02-12)
 
 ### Bug fixes
