@@ -716,7 +716,7 @@ export const stylus = {
       } else if (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(ch) || wordIsTag(lineFirstWord)) {
         if (/\,\s*$/.test(prevLineFirstWord)) {
           indent = prevLineIndent;
-        } else if (!state.sol() && (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(prevLineFirstWord) || wordIsTag(prevLineFirstWord))) {
+        } else if (/(\.|#|:|\[|\*|&|>|~|\+|\/)/.test(prevLineFirstWord) || wordIsTag(prevLineFirstWord)) {
           indent = lineIndent <= prevLineIndent ? prevLineIndent : prevLineIndent + iCx.unit;
         } else {
           indent = lineIndent;
