@@ -1,3 +1,9 @@
+## 6.5.1 (2025-04-22)
+
+### Bug fixes
+
+Fix a crash in the Stylus mode's indentation logic.
+
 ## 6.5.0 (2025-03-13)
 
 ### New features
