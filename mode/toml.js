@@ -10,23 +10,24 @@ export const toml = {
   },
   token: function (stream, state) {
     //check for state changes
-    if (!state.inString && ((stream.peek() == '"') || (stream.peek() == "'"))) {
-      state.stringType = stream.peek();
-      stream.next(); // Skip quote
+    let quote
+    if (!state.inString && (quote = stream.match(/^('''|"""|'|")/))) {
+      state.stringType = quote[0]
       state.inString = true; // Update state
     }
-    if (stream.sol() && state.inArray === 0) {
+    if (stream.sol() && !state.inString && state.inArray === 0) {
       state.lhs = true;
     }
     //return state
     if (state.inString) {
-      while (state.inString && !stream.eol()) {
-        if (stream.peek() === state.stringType) {
-          stream.next(); // Skip quote
+      while (state.inString) {
+        if (stream.match(state.stringType)) {
           state.inString = false; // Clear flag
         } else if (stream.peek() === '\\') {
           stream.next();
           stream.next();
+        } else if (stream.eol()) {
+          break
         } else {
           stream.match(/^.[^\\\"\']*/);
         }
