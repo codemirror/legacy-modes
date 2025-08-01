@@ -45,7 +45,7 @@ function tokenBase(stream,state){
   return"error";
 }
 function tokenLineComment(stream,state){
-  return stream.skipToEnd(),/\/\s*$/.test(stream.current())?(state.tokenize=tokenBlockComment)(stream,state):(state.tokenize=tokenBase),"comment";
+  return stream.skipToEnd(),/^\/\s*$/.test(stream.current())?(state.tokenize=tokenBlockComment)(stream,state):(state.tokenize=tokenBase),"comment";
 }
 function tokenBlockComment(stream,state){
   var f=stream.sol()&&stream.peek()=="\\";
@@ -117,5 +117,8 @@ export const q = {
       return context.col+(closing?0:1);
     else
       return context.indent+(closing?0:cx.unit);
-  }
+  },
+  languageData: {
+    commentTokens: { line: "/" },
+  },
 };
