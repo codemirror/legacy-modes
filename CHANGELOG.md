@@ -1,3 +1,11 @@
+## 6.5.2 (2025-09-30)
+
+### Bug fixes
+
+Properly tokenize multi-line strings in TOML mode.
+
+Properly declare comment syntax metadata for the Q language.
+
 ## 6.5.1 (2025-04-22)
 
 ### Bug fixes
