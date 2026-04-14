@@ -36,6 +36,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codemirror/legacy-modes.git"
+    "url": "git+https://code.haverbeke.berlin/codemirror/legacy-modes.git"
   }
 }
