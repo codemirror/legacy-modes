@@ -1,3 +1,5 @@
+**This repository has moved to https://code.haverbeke.berlin/codemirror/legacy-modes**
+
 <!-- NOTE: README.md is generated from mode/README.md -->
 
 # @codemirror/legacy-modes [![NPM version](https://img.shields.io/npm/v/@codemirror/legacy-modes.svg)](https://www.npmjs.org/package/@codemirror/legacy-modes)
